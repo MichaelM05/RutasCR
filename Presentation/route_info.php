@@ -74,7 +74,7 @@
                         <div class="row">
                             <div class="col-md-12 col-xs-12">
                                 <div class="logo float-left navbar-header">
-                                    <a class="navbar-brand" href="../index.html"><img src="../Styles/img\logo\logo.png" alt=""></a>
+                                    <a class="navbar-brand" href="../index.html"><img src="../Images/logo.jpeg" width="80px" height="80px" alt=""></a>
                                     <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-2">
                                         <i class="fa fa-bars menu-open"></i>
                                         <i class="fa fa-times menu-close"></i>
@@ -97,9 +97,9 @@
             </header>
             <!-- sliders area
             ============================================ -->
-            <div id="home-area">
+            <div id="home-area" style="background: #8492a8;">
                 <div class="slider-active">
-                    <div class="sliders-responsive main-slider-area bg-oapcity-40 slider-active-fix" style="background-image: url(img/bg-img/bg-1.jpg)">
+                    <div class="sliders-responsive main-slider-area bg-oapcity-10 slider-active-fix">
                         <div class="container">
                             <div class="row">
                                 <div class="home-sliders clearfix mid-mrg">
@@ -143,13 +143,7 @@
             <footer class="footer-area pt-100">
                 <div class="container">
                     <div class="col-md-12 text-center">
-                        <div class="footer-all">
-                            <div class="footer-logo logo">
-                                <a href="#"><img src="img\logo\2.png" alt=""></a>
-                            </div>
-                            <div class="footer-icon">
-                                <p>Lo mejor en rutas turísticas en el país.</p>
-                            </div>
+                        <div class="footer-all">                            
                             <div class="footer-text">
                                 <span>
                                     Copyright©

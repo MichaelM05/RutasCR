@@ -12,8 +12,11 @@
         <link href="../assets/css/custom.css" rel="stylesheet" />
         <!-- GOOGLE FONTS-->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+        <script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
+        <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
     </head>
-    
+
     <body>
         <div id="wrapper">
             <div class="navbar navbar-inverse navbar-fixed-top">
@@ -25,7 +28,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="#">
-                            <img src="../assets/img/logo.png" />
+                            <img src="../Images/logo.jpeg" width="80px" height="80px" alt="">
                         </a>
                     </div>
 
@@ -39,14 +42,26 @@
             <nav class="navbar-default navbar-side" role="navigation">
                 <div class="sidebar-collapse">
                     <ul class="nav" id="main-menu">
-                        <li> 
+<!--                        <li> 
                             <a href="index.php" ><i class="fa fa-desktop "></i>Inicio</a>
+                        </li>-->
+                        <li>
+                            <a href="./AddTouristicPlace.php"><i class="fa fa-bar-chart-o"></i>Agregar sitio turístico</a>
                         </li>
                         <li>
                             <a href="./CreateRoute.php"><i class="fa fa-bar-chart-o"></i>Crear Ruta</a>
+                        </li>
+                        <li>
+                            <a href="./ModifyRoute.php"><i class="fa fa-bar-chart-o"></i>Modificar Ruta</a>
+                        </li>
+                        <li>
+                            <a href="./CreateAdmin.php"><i class="fa fa-bar-chart-o"></i>Crear Administrador</a>
+                        </li>
+                        <li>
+                            <a href="./DeleteAdmin.php"><i class="fa fa-bar-chart-o"></i>Eliminar Administrador</a>
                         </li>
                     </ul>
                 </div>
 
             </nav>
-</div>
+        </div>

@@ -74,7 +74,7 @@
                         <div class="row">
                             <div class="col-md-12 col-xs-12">
                                 <div class="logo float-left navbar-header">
-                                     <a class="navbar-brand" href="../index.html"><img src="../Images/logo.jpeg" width="80px" height="80px" alt=""></a>
+                                    <a class="navbar-brand" href="../index.html"><img src="../Styles/img\logo\logo.png" alt=""></a>
                                     <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-2">
                                         <i class="fa fa-bars menu-open"></i>
                                         <i class="fa fa-times menu-close"></i>
@@ -95,23 +95,58 @@
                     </div>
                 </div>
             </header>
-            <!-- sliders area
-            ============================================ -->
+            
             <div id="home-area">
                 <div class="slider-active">
                     <div class="sliders-responsive main-slider-area bg-oapcity-40 slider-active-fix" style="background-image: url(img/bg-img/bg-1.jpg)">
                         <div class="container">
                             <div class="row">
                                 <div class="home-sliders clearfix mid-mrg">
-                                    <div class="col-md-12 col-sm-12">
-                                        <div class="top-text pt-0 mid-mrg">
-                                            <div class="slider-text">
-                                                <h2>Mapa de la ruta</h2><br><br>
+                                    <div class="top-text pt-10 mid-mrg">
+                                        <div class="slider-text">
+                                            <h2>Rutas Recomendadas</h2><br><br>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12">
+
+                                            <div class="row">
+                                                <div class="col-md-4 col-sm-6">
+                                                    <img src="../Styles/img/blog/1.jpg" alt="">
+                                                </div>
+                                                <div class="col-md-2 col-sm-6">
+                                                    <p class="visible">Ruta 1 </p><br>
+                                                    <a href="route_info.php" class="visible">Ver mas</a>
+
+                                                </div>
+                                                <div class="col-md-4 col-sm-6">
+                                                    <img src="../Styles/img/blog/1.jpg" alt="">
+                                                </div>
+                                                <div class="col-md-2 col-sm-6">
+                                                    <p class="visible">Ruta 3 </p><br>
+                                                    <a href="route_info.php" class="visible">Ver mas</a>
+
+                                                </div>
                                             </div>
-                                            <div class="contact-map">
-                                                <div id="hastech"></div>
+                                            <br>
+                                             <div class="row">
+                                                <div class="col-md-4 col-sm-6">
+                                                    <img src="../Styles/img/blog/1.jpg" alt="">
+                                                </div>
+                                                <div class="col-md-2 col-sm-6">
+                                                    <p class="visible">Ruta 2 </p><br>
+                                                    <a href="route_info.php" class="visible">Ver mas</a>
+
+                                                </div>
+                                                <div class="col-md-4 col-sm-6">
+                                                    <img src="../Styles/img/blog/1.jpg" alt="">
+                                                </div>
+                                                <div class="col-md-2 col-sm-6">
+                                                    <p class="visible">Ruta 4 </p><br>
+                                                    <a href="route_info.php" class="visible">Ver mas</a>
+
+                                                </div>
                                             </div>
                                         </div>
+                                         
                                     </div>
                                 </div>
                             </div>
@@ -119,12 +154,8 @@
                     </div>
                 </div>
             </div>
-            <!-- contact area
-            ============================================ -->
-            <div class="map-area" id="support-area">
-
-            </div>
-            <!-- footer area
+           
+           <!-- footer area
             ============================================ -->
             <footer class="footer-area pt-100">
                 <div class="container">
@@ -168,37 +199,7 @@
         ============================================ -->		
         <script src="../Styles/js\plugins.js"></script>
         <!-- google map api -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_qDiT4MyM7IxaGPbQyLnMjVUsJck02N0"></script>
-        <script>
-            var myCenter = new google.maps.LatLng(30.249796, -97.754667);
-            function initialize()
-            {
-                var mapProp = {
-                    center: myCenter,
-                    scrollwheel: false,
-                    zoom: 15,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-                };
-                var map = new google.maps.Map(document.getElementById("hastech"), mapProp);
-                var marker = new google.maps.Marker({
-                    position: myCenter,
-                    animation: google.maps.Animation.BOUNCE,
-                    icon: 'img/map-marker.png',
-                    map: map,
-                });
-                var styles = [
-                    {
-                        stylers: [
-                            {hue: "#c5c5c5"},
-                            {saturation: -100}
-                        ]
-                    },
-                ];
-                //map.setOptions({styles: styles});
-                marker.setMap(map);
-            }
-            google.maps.event.addDomListener(window, 'load', initialize);
-        </script>
+        
         <!-- main JS
         ============================================ -->		
         <script src="../Styles/js\main.js"></script>
