@@ -83,10 +83,20 @@
                                 <div class="main-menu float-right collapse navbar-collapse" id="main-menu-2">
                                     <nav>
                                         <ul class="menu one-page">
+<<<<<<< HEAD
                                             <li class="active"><a href="#home-area">Inicio </a></li>
                                             <li><a href="#search-area">Busqueda </a></li>
                                             <li><a href="#features-area">Ver Sugerencias </a></li>
                                             <li><a href="#screenshort-area">Iniciar Sesión </a></li>
+=======
+                                            <li class="active"><a href="#home-area">HOME</a></li>
+                                            <li><a href="#about-area">About   </a></li>
+                                            <li><a href="#features-area">FEATURES</a></li>
+                                            <li><a href="#screenshort-area">screenshots </a></li>
+                                            <li><a href="#pricing-area">pricing </a></li>
+                                            <li><a href="#review-area">reviews</a></li>
+                                            <li><a href="./PresentationAdmin/loginRegister.php">Iniciar Sesión/Registro</a></li>
+>>>>>>> 0a2f1c6283489a740cc0e5fcf63450ec867e96f9
                                         </ul>
                                     </nav>
                                 </div>
