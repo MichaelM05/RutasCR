@@ -89,7 +89,7 @@
                                             <li><a href="#screenshort-area">screenshots </a></li>
                                             <li><a href="#pricing-area">pricing </a></li>
                                             <li><a href="#review-area">reviews</a></li>
-                                            <li><a href="#support-area">support</a></li>
+                                            <li><a href="./PresentationAdmin/loginRegister.php">Iniciar Sesión/Registro</a></li>
                                         </ul>
                                     </nav>
                                 </div>
