@@ -50,7 +50,7 @@ include './ReusableHeader.php';
                 <div class="col-lg-5 col-md-5">
                     <label></label>
                     <!--<input type="submit" value="Buscar" class="btn btn-danger btn-lg btn-block">-->
-                    <a class="btn btn-danger btn-lg btn-block" href="./ShowAvailablesPlaces.php">Buscar</a>
+                    <a class="btn btn-success btn-lg btn-block" href="./ShowAvailablesPlaces.php">Buscar</a>
                 </div>
             </form>
         </div>
