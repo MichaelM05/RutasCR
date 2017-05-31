@@ -74,7 +74,7 @@
                         <div class="row">
                             <div class="col-md-12 col-xs-12">
                                 <div class="logo float-left navbar-header">
-                                    <a class="navbar-brand" href="index.html"><img src="Styles/img\logo\logo.png" alt=""></a>
+                                    <a class="navbar-brand" href="index.php"><img src="Images/logo.jpeg" alt="" width="80px" height="80px"></a>
                                     <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-2">
                                         <i class="fa fa-bars menu-open"></i>
                                         <i class="fa fa-times menu-close"></i>
@@ -87,6 +87,7 @@
                                             <li><a href="#search-area">Busqueda </a></li>
                                             <li><a href="#features-area">Ver Sugerencias </a></li>
                                             <li><a href="./PresentationAdmin/loginRegister.php">Iniciar Sesión/Registro</a></li>
+                                            <li><a href="SiteMap.php">Mapa sitio</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -99,7 +100,7 @@
             ============================================ -->
             <div id="home-area">
                 <div class="slider-active">
-                    <div class="sliders-responsive main-slider-area bg-oapcity-40 slider-active-fix" style="background-image: url(/Styles/img/bg-img/bg-1.jpg)">
+                    <div class="sliders-responsive main-slider-area bg-oapcity-40 slider-active-fix" style="background-image: url(Images/volcan-Turrialba-680x428.jpg)">
                         <div class="container">
                             <div class="row">
                                 <div class="home-sliders clearfix mid-mrg">
@@ -122,7 +123,7 @@
                                     </div>
                                     <div class="col-md-5 col-sm-4">
                                         <div class="slider-imgj mid-mrg">
-                                            <img src="Styles/img\mobile\1.png" alt="">
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -176,11 +177,27 @@
                             </div>
                             <div class="single-features-list text-left res-features">
                                 <div class="feature-list-text">
-                                    <input type="submit" name="btnSubmit" value="Buscar" class="form-control">
+                                    <input style="background: #1659bf; color: #fbfbfc;" type="submit" name="btnSubmit" value="Buscar" class="form-control">
                                 </div>
                             </div>						
                         </div>
                         </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="blog-area gray-bg pt-100 pb-120">
+                <div class="container">
+                    <div class="about-bottom-left blog-mrg clearfix text-center">
+                        <h2>Créditos</h2>
+                        <p>Sitio web desarrollado por estudiantes<br> de la Universidad de Costa Rica, Sede del Atlántico del Recinto Turrialba.</p>
+                    </div>
+                    <div class="row center-block text-center">
+                        <ul>
+                            <li>Joseph Cordero Marín</li>
+                            <li>Brayan Villalobos Bravo</li>
+                            <li>Michael Meléndez Mesén</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -191,12 +208,12 @@
                 <div class="container">
                     <div class="col-md-12 text-center">
                         <div class="footer-all">
-                            <div class="footer-logo logo">
-                                <a href="#"><img src="img\logo\2.png" alt=""></a>
+<!--                            <div class="footer-logo logo">
+                                <a href="#"><img src="Styles/img\logo\2.png" alt=""></a>
                             </div>
                             <div class="footer-icon">
                                 <p>Lo mejor en rutas turísticas en el país.</p>
-                            </div>
+                            </div>-->
                             <div class="footer-text">
                                 <span>
                                     Copyright©

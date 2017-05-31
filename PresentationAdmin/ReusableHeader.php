@@ -28,7 +28,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="#">
-                            <img src="../assets/img/logo.png" />
+                            <img src="../Images/logo.jpeg" width="80px" height="80px" alt="">
                         </a>
                     </div>
 
@@ -42,9 +42,9 @@
             <nav class="navbar-default navbar-side" role="navigation">
                 <div class="sidebar-collapse">
                     <ul class="nav" id="main-menu">
-                        <li> 
+<!--                        <li> 
                             <a href="index.php" ><i class="fa fa-desktop "></i>Inicio</a>
-                        </li>
+                        </li>-->
                         <li>
                             <a href="./AddTouristicPlace.php"><i class="fa fa-bar-chart-o"></i>Agregar sitio turístico</a>
                         </li>
