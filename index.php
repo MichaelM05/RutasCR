@@ -100,7 +100,7 @@
             ============================================ -->
             <div id="home-area">
                 <div class="slider-active">
-                    <div class="sliders-responsive main-slider-area bg-oapcity-40 slider-active-fix" style="background-image: url(Images/volcan-Turrialba-680x428.jpg)">
+                    <div class="sliders-responsive main-slider-area bg-oapcity-40 slider-active-fix" style="background-image: url(Images/volcan-turrialba-16052016.jpg)">
                         <div class="container">
                             <div class="row">
                                 <div class="home-sliders clearfix mid-mrg">
@@ -114,7 +114,7 @@
                                                     <a class="button" href="#search-area">
                                                         Buscar Rutas
                                                     </a>
-                                                    <a class="button active" href="#">
+                                                    <a class="button" href="#preroutes-area">
                                                         Ver Sugerencias
                                                     </a>
                                                 </div>
@@ -123,7 +123,7 @@
                                     </div>
                                     <div class="col-md-5 col-sm-4">
                                         <div class="slider-imgj mid-mrg">
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -141,51 +141,68 @@
                     </div>
                     <div class="row">
                         <form action="./Presentation/routes_found.php" method="post">
-                        <div class="col-md-6 col-sm-12 ">
-                            <div class="single-features-list text-left">
-                                <div class="feature-list-text">
-                                    <input name="txtPrice" type="text" placeholder="Precio" class="form-control">
+                            <div class="col-md-6 col-sm-12 ">
+                                <div class="single-features-list text-left">
+                                    <div class="feature-list-text">
+                                        <input name="txtPrice" type="text" placeholder="Precio" class="form-control">
+                                    </div>
                                 </div>
+                                <div class="single-features-list text-left">
+                                    <div class="feature-list-text">
+                                        <div class="feature-list-text">
+                                            <input name="txtTime" type="text" placeholder="Duracion" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="single-features-list text-left">
+                                    <div class="feature-list-text">
+                                        <select name="cbActivity" class="form-control">
+                                            <option value="NA">Actividad</option>
+                                        </select>
+                                    </div>
+                                </div>						
                             </div>
-                            <div class="single-features-list text-left">
-                                <div class="feature-list-text">
-                                   <div class="feature-list-text">
-                                    <input name="txtTime" type="text" placeholder="Duracion" class="form-control">
+                            <div class="col-md-6 col-sm-12">
+                                <div class="single-features-list text-left">
+                                    <div class="feature-list-text">
+                                        <input name="txtDistance" type="text" placeholder="Distancia" class="form-control">
+                                    </div>
                                 </div>
+                                <div class="single-features-list text-left">
+                                    <div class="feature-list-text">
+                                        <select name="cbOrigin" class="form-control">
+                                            <option value="NA">Mi ubicación</option>
+                                        </select>
+                                    </div>
                                 </div>
+                                <div class="single-features-list text-left res-features">
+                                    <div class="feature-list-text">
+                                        <input style="background: #1659bf; color: #fbfbfc;" type="submit" name="btnSubmit" value="Buscar" class="form-control">
+                                    </div>
+                                </div>						
                             </div>
-                            <div class="single-features-list text-left">
-                                <div class="feature-list-text">
-                                    <select name="cbActivity" class="form-control">
-                                         <option value="NA">Actividad</option>
-                                    </select>
-                                </div>
-                            </div>						
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <div class="single-features-list text-left">
-                                <div class="feature-list-text">
-                                    <input name="txtDistance" type="text" placeholder="Distancia" class="form-control">
-                                </div>
-                            </div>
-                            <div class="single-features-list text-left">
-                                <div class="feature-list-text">
-                                    <select name="cbOrigin" class="form-control">
-                                         <option value="NA">Mi ubicación</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="single-features-list text-left res-features">
-                                <div class="feature-list-text">
-                                    <input style="background: #1659bf; color: #fbfbfc;" type="submit" name="btnSubmit" value="Buscar" class="form-control">
-                                </div>
-                            </div>						
-                        </div>
                         </form>
                     </div>
                 </div>
             </div>
-            
+
+
+            <div id="preroutes-area" class="ptb-120 fix">
+                <div class="container">
+                    <div class="about-bottom-left blog-mrg clearfix text-center">
+                        <h2>Rutas recomendadas</h2>
+                        <p>Acá podrá ver una serie de rutas recomendadas por otros
+                            usuarios las cuales le brindan la oportunidad de conocer
+                            otros sitios turísiticos.</p>
+                        <div class="button-set">
+                            <a class="button" href="./Presentation/routes_recomendation.php">
+                                Ver sugerencias
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="blog-area gray-bg pt-100 pb-120">
                 <div class="container">
                     <div class="about-bottom-left blog-mrg clearfix text-center">
@@ -201,19 +218,20 @@
                     </div>
                 </div>
             </div>
-          
+
+
             <!-- footer area
             ============================================ -->
             <footer class="footer-area pt-100">
                 <div class="container">
                     <div class="col-md-12 text-center">
                         <div class="footer-all">
-<!--                            <div class="footer-logo logo">
-                                <a href="#"><img src="Styles/img\logo\2.png" alt=""></a>
-                            </div>
-                            <div class="footer-icon">
-                                <p>Lo mejor en rutas turísticas en el país.</p>
-                            </div>-->
+                            <!--                            <div class="footer-logo logo">
+                                                            <a href="#"><img src="Styles/img\logo\2.png" alt=""></a>
+                                                        </div>
+                                                        <div class="footer-icon">
+                                                            <p>Lo mejor en rutas turísticas en el país.</p>
+                                                        </div>-->
                             <div class="footer-text">
                                 <span>
                                     Copyright©
