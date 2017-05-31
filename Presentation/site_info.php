@@ -87,6 +87,7 @@
                                             <li><a href="../index.php#search-area">Busqueda </a></li>
                                             <li><a href="../index.php#features-area">Ver Sugerencias </a></li>
                                             <li><a href="../index.php#screenshort-area">Iniciar Sesión </a></li>
+                                            <li><a href="./Presentation/SiteMap.php">Mapa sitio</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -99,7 +100,7 @@
             ============================================ -->
             <div id="home-area">
                 <div class="slider-active">
-                    <div class="sliders-responsive main-slider-area bg-oapcity-40 slider-active-fix" style="background-image: url(img/bg-img/bg-1.jpg)">
+                    <div class="sliders-responsive main-slider-area bg-oapcity-40 slider-active-fix" style="background-image: url(../Images/volcan-turrialba-16052016.jpg)">
                         <div class="container">
                             <div class="row">
                                 <div class="home-sliders clearfix mid-mrg">
@@ -121,7 +122,7 @@
                                         </div>
                                         <div class="col-md-5 col-sm-4">
                                             <div class="slider-imgj mid-mrg">
-                                                <img src="../Styles/img\mobile\1.png" alt="">
+                                                <img src="../Images/catarata.jpg" alt="">
                                             </div>
                                         </div>
                                          

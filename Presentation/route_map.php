@@ -99,7 +99,7 @@
             ============================================ -->
             <div id="home-area">
                 <div class="slider-active">
-                    <div class="sliders-responsive main-slider-area bg-oapcity-40 slider-active-fix" style="background-image: url(img/bg-img/bg-1.jpg)">
+                    <div class="sliders-responsive main-slider-area bg-oapcity-40 slider-active-fix" style="background-image: url(../Images/volcan-turrialba-16052016.jpg)">
                         <div class="container">
                             <div class="row">
                                 <div class="home-sliders clearfix mid-mrg">

@@ -87,7 +87,7 @@
                                             <li><a href="#search-area">Busqueda </a></li>
                                             <li><a href="#features-area">Ver Sugerencias </a></li>
                                             <li><a href="./PresentationAdmin/loginRegister.php">Iniciar Sesión/Registro</a></li>
-                                            <li><a href="SiteMap.php">Mapa sitio</a></li>
+                                            <li><a href="./Presentation/SiteMap.php">Mapa sitio</a></li>
                                         </ul>
                                     </nav>
                                 </div>
