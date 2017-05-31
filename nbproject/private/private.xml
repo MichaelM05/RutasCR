@@ -3,8 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/xampp/htdocs/RutasCR/template.php</file>
             <file>file:/C:/xampp/htdocs/RutasCR/index.php</file>
+=======
+<<<<<<< HEAD
+            <file>file:/C:/xampp/htdocs/RutasCR/Styles/css/et-line-fonts.css</file>
+            <file>file:/C:/xampp/htdocs/RutasCR/PresentationAdmin/blank.php</file>
+            <file>file:/C:/xampp/htdocs/RutasCR/PresentationAdmin/index.php</file>
+            <file>file:/C:/xampp/htdocs/RutasCR/PresentationAdmin/ui.php</file>
+            <file>file:/C:/xampp/htdocs/RutasCR/index.php</file>
+            <file>file:/C:/xampp/htdocs/RutasCR/Styles/js/main.js</file>
+            <file>file:/C:/xampp/htdocs/RutasCR/Styles/css/font-awesome.min.css</file>
+            <file>file:/C:/xampp/htdocs/RutasCR/Styles/css/ionicons.min.css</file>
+=======
+            <file>file:/C:/wamp/www/ProyectoExpertos/RutasCR/index_1.php</file>
+>>>>>>> 6e83ff6838bc12427aa0289193f16efb5b7973dc
+>>>>>>> origin
         </group>
     </open-files>
 </project-private>

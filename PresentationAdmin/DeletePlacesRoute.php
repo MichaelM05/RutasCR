@@ -11,12 +11,12 @@ include './ReusableHeader.php';
             </div>
         </div>
         <hr>
-        <div class="row">
+        <div class="row center-block">
                 <div class="row text-center pad-top">
                     <?php 
                     for($i = 0; $i<6; $i++) {
                     ?>
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                         <div class="div-square">
                             <form>
                                 <img height="170px" width="200px" src="../Images/catarata.jpg" />

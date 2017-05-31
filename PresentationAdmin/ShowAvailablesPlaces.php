@@ -11,7 +11,7 @@ include './ReusableHeader.php';
             </div>           
         </div>
         <hr>
-        <div class="row">
+        <div class="row center-block">
                 <div class="row text-center pad-top">
                     <?php 
                     for($i = 0; $i<6; $i++) {
@@ -22,7 +22,7 @@ include './ReusableHeader.php';
                                 <img height="170px" width="200px" src="../Images/catarata.jpg" />
                                 <h4>Lugar <?php echo $i + 1; ?></h4>
                                 <p>Descripción</p>
-                                <input type="submit" value="Agregar Sitio" class="btn btn-danger">
+                                <input type="submit" value="Agregar Sitio" class="btn btn-success">
                             </form>
                         </div>
                     </div>
