@@ -100,8 +100,9 @@ h6 {
     font-family: 'Open Sans', sans-serif;
 }
 h3 {
-    margin: 0 0 10px;
+    margin: 0 0 10px 30%;
     font-family: 'Lato', sans-serif;
+    color: white;
 }
 a {
     transition: all 0.3s ease 0s;
@@ -1882,4 +1883,9 @@ button.submit:hover {
 }
 .mfp-wrap {
   z-index: 999999;
+}
+
+.visible {
+    font-size: 20px;
+    color: white;
 }
