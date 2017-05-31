@@ -83,20 +83,10 @@
                                 <div class="main-menu float-right collapse navbar-collapse" id="main-menu-2">
                                     <nav>
                                         <ul class="menu one-page">
-<<<<<<< HEAD
                                             <li class="active"><a href="#home-area">Inicio </a></li>
                                             <li><a href="#search-area">Busqueda </a></li>
-                                            <li><a href="#features-area">Ver Sugerencias </a></li>
-                                            <li><a href="#screenshort-area">Iniciar Sesión </a></li>
-=======
-                                            <li class="active"><a href="#home-area">HOME</a></li>
-                                            <li><a href="#about-area">About   </a></li>
-                                            <li><a href="#features-area">FEATURES</a></li>
-                                            <li><a href="#screenshort-area">screenshots </a></li>
-                                            <li><a href="#pricing-area">pricing </a></li>
-                                            <li><a href="#review-area">reviews</a></li>
-                                            <li><a href="./PresentationAdmin/loginRegister.php">Iniciar Sesión/Registro</a></li>
->>>>>>> 0a2f1c6283489a740cc0e5fcf63450ec867e96f9
+                                            <li><a href="#preroutes-area">Ver Sugerencias </a></li>
+                                            <li><a href="./PresentationAdmin/loginRegister.php"> Sesión/Registro</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -123,7 +113,7 @@
                                                     <a class="button" href="#search-area">
                                                         Buscar Rutas
                                                     </a>
-                                                    <a class="button active" href="#">
+                                                    <a class="button" href="#preroutes-area">
                                                         Ver Sugerencias
                                                     </a>
                                                 </div>
@@ -150,51 +140,65 @@
                     </div>
                     <div class="row">
                         <form action="./Presentation/routes_found.php" method="post">
-                        <div class="col-md-6 col-sm-12 ">
-                            <div class="single-features-list text-left">
-                                <div class="feature-list-text">
-                                    <input name="txtPrice" type="text" placeholder="Precio" class="form-control">
+                            <div class="col-md-6 col-sm-12 ">
+                                <div class="single-features-list text-left">
+                                    <div class="feature-list-text">
+                                        <input name="txtPrice" type="text" placeholder="Precio" class="form-control">
+                                    </div>
                                 </div>
+                                <div class="single-features-list text-left">
+                                    <div class="feature-list-text">
+                                        <div class="feature-list-text">
+                                            <input name="txtTime" type="text" placeholder="Duracion" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="single-features-list text-left">
+                                    <div class="feature-list-text">
+                                        <select name="cbActivity" class="form-control">
+                                            <option value="NA">Actividad</option>
+                                        </select>
+                                    </div>
+                                </div>						
                             </div>
-                            <div class="single-features-list text-left">
-                                <div class="feature-list-text">
-                                   <div class="feature-list-text">
-                                    <input name="txtTime" type="text" placeholder="Duracion" class="form-control">
+                            <div class="col-md-6 col-sm-12">
+                                <div class="single-features-list text-left">
+                                    <div class="feature-list-text">
+                                        <input name="txtDistance" type="text" placeholder="Distancia" class="form-control">
+                                    </div>
                                 </div>
+                                <div class="single-features-list text-left">
+                                    <div class="feature-list-text">
+                                        <select name="cbOrigin" class="form-control">
+                                            <option value="NA">Mi ubicación</option>
+                                        </select>
+                                    </div>
                                 </div>
+                                <div class="single-features-list text-left res-features">
+                                    <div class="feature-list-text">
+                                        <input type="submit" name="btnSubmit" value="Buscar" class="form-control">
+                                    </div>
+                                </div>						
                             </div>
-                            <div class="single-features-list text-left">
-                                <div class="feature-list-text">
-                                    <select name="cbActivity" class="form-control">
-                                         <option value="NA">Actividad</option>
-                                    </select>
-                                </div>
-                            </div>						
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <div class="single-features-list text-left">
-                                <div class="feature-list-text">
-                                    <input name="txtDistance" type="text" placeholder="Distancia" class="form-control">
-                                </div>
-                            </div>
-                            <div class="single-features-list text-left">
-                                <div class="feature-list-text">
-                                    <select name="cbOrigin" class="form-control">
-                                         <option value="NA">Mi ubicación</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="single-features-list text-left res-features">
-                                <div class="feature-list-text">
-                                    <input type="submit" name="btnSubmit" value="Buscar" class="form-control">
-                                </div>
-                            </div>						
-                        </div>
                         </form>
                     </div>
                 </div>
             </div>
-          
+            <div id="preroutes-area" class="ptb-120 fix">
+                <div class="container">
+                    <div class="about-bottom-left blog-mrg clearfix text-center">
+                        <h2>Rutas recomendadas</h2>
+                        <p>Acá podrá ver una serie de rutas recomendadas por otros
+                            usuarios las cuales le brindan la oportunidad de conocer
+                            otros sitios turísiticos.</p>
+                        <div class="button-set">
+                            <a class="button" href="./Presentation/routes_recomendation.php">
+                                Ver sugerencias
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- footer area
             ============================================ -->
             <footer class="footer-area pt-100">
