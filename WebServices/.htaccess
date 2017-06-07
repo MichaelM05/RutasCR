@@ -1,0 +1,10 @@
+RewriteEngine On
+
+RewriteRule ^(touristicplaces)$ TouristicPlaceAPI.php?action=$1 [L,QSA]
+
+
+RewriteRule ^(users)$ UserAPI.php?action=$1
+RewriteRule ^(users)/([0-9]+) UserAPI.php?action=$1&id=$2 [L,QSA]
+RewriteRule ^(login)$ UserAPI.php?action=$1
+
+RewriteRule ^(routes)$ RoutesAPI.php?action=$1
