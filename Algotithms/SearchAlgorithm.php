@@ -64,7 +64,7 @@ function getRoutes($activity, $price, $duration, $distance, $initPoint) {
     
     $location = split(",", $initPoint);
     
-    $initPlace = new TouristicPlace(0, "", "", $location[0], $location[1], "", "");
+    $initPlace = new TouristicPlace(0, "Origen", "", $location[0], $location[1], "", "");
     
     foreach ($combinations as $currentCombination) {
         $places = [];
