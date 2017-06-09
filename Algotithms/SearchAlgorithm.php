@@ -28,7 +28,7 @@ function getRoutes($activity, $price, $duration, $distance, $initPoint) {
         "8 0 más Km" => 0];
 
 
-    $conn = mysqli_connect('localhost', 'root', '', 'routescr');
+    $conn = mysqli_connect('mysql.hostinger.es', 'u536767961_rutas', 'expertos', 'u536767961_rutas');
     $conn->set_charset('utf8');
 
     $querySelect = "SELECT * FROM tbtouristicplace";
@@ -62,7 +62,7 @@ function getRoutes($activity, $price, $duration, $distance, $initPoint) {
     
     $routes = [];
     
-    $location = split(",", $initPoint);
+    $location = explode(",", $initPoint);
     
     $initPlace = new TouristicPlace(0, "Origen", "", $location[0], $location[1], "", "");
     
