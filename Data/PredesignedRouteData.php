@@ -1,7 +1,7 @@
 <?php
 
-include_once './Data.php';
-include '../Domain/PredesignedRoute.php';
+include_once 'Data.php';
+include_once '../Domain/PredesignedRoute.php';
 
 class PredesignedRouteData extends Data {
 
@@ -74,20 +74,38 @@ class PredesignedRouteData extends Data {
         return $predesignedRoutes;
     }
 
-    public function getPredesignedRouteById($idPredesignedRoute) {
+    public function getPredesignedRouteByUser($idUser) {
         $conn = mysqli_connect($this->server, $this->user, $this->password, $this->db);
         $conn->set_charset('utf8');
 
-        $querySelect = "select * from tbpredesignedroute where idtbpredesignedroute = " . 
-                $idPredesignedRoute . ";";
+        $querySelect = "select * from tbpredesignedroute where usercreate = " . 
+                $idUser . ";";
+        $result = mysqli_query($conn, $querySelect);
+        mysqli_close($conn);
+
+        $predesignedRoutes = [];
+        while ($row = mysqli_fetch_array($result)) {
+            $currentPredesignedRoute = new PredesignedRoute($row['idtbpredesignedroute'], 
+                    $row['nameroute'], $row['usercreate']);
+            array_push($predesignedRoutes, $currentPredesignedRoute);
+        }
+
+        return $predesignedRoutes;
+    }
+    
+    public function getPredesignedRouteByName($routeName){
+        $conn = mysqli_connect($this->server, $this->user, $this->password, $this->db);
+        $conn->set_charset('utf8');
+
+        $querySelect = "select * from tbpredesignedroute where nameroute = '" . 
+                $routeName . "';";
         $result = mysqli_query($conn, $querySelect);
         mysqli_close($conn);
 
         $row = mysqli_fetch_array($result);
-        $currentPredesignedRoute = new PredesignedRoute($row['idtbpredesignedroute'], 
-                    $row['nameroute'], $row['usercreate']);
+        $idRoute = $row['idtbpredesignedroute']; 
 
-        return $currentPredesignedRoute;
+        return $idRoute;
     }
 
 }

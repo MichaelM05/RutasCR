@@ -1,6 +1,6 @@
 <?php
 
-include '../Data/PredesignedRouteData.php';
+include_once '../Data/PredesignedRouteData.php';
 
 class PredesignedRouteBusiness {
 
@@ -26,8 +26,12 @@ class PredesignedRouteBusiness {
         return $this->predesignedRouteData->getAllTBPredesignedRoutees();
     }
 
-    public function getPredesignedRouteById($idPredesignedRoute) {
-        return $this->predesignedRouteData->getPredesignedRouteById($idPredesignedRoute);
+    public function getPredesignedRouteByUser($idUser) {
+        return $this->predesignedRouteData->getPredesignedRouteByUser($idUser);
+    }
+    
+    public function getPredesignedRouteByName($routeName){
+        return $this->predesignedRouteData->getPredesignedRouteByName($routeName);
     }
     
 }

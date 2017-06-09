@@ -8,3 +8,6 @@ RewriteRule ^(users)/([0-9]+) UserAPI.php?action=$1&id=$2 [L,QSA]
 RewriteRule ^(login)$ UserAPI.php?action=$1
 
 RewriteRule ^(routes)$ RoutesAPI.php?action=$1
+
+RewriteRule ^(predesignedroutes)$ PredesignedRoutesAPI.php?action=$1
+RewriteRule ^(predesignedroutes)/([0-9]+) PredesignedRoutesAPI.php?action=$1&id=$2 [L,QSA]
