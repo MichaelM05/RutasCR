@@ -1,7 +1,7 @@
 <?php
 
-include_once './Data.php';
-include '../Domain/ImageTouristicPlace.php';
+include_once 'Data.php';
+include_once '../Domain/ImageTouristicPlace.php';
 
 class ImageTouristicPlaceData extends Data {
 
@@ -74,20 +74,23 @@ class ImageTouristicPlaceData extends Data {
         return $imageTouristicPlaces;
     }
 
-    public function getImageTouristicPlaceById($idImageTouristicPlace) {
+    public function getImageTouristicPlaceByPlace($idTouristicPlace) {
         $conn = mysqli_connect($this->server, $this->user, $this->password, $this->db);
         $conn->set_charset('utf8');
 
-        $querySelect = "select * from tbimagetouristicplace where idtbimagetouristicplace = " . 
-                $idImageTouristicPlace . ";";
+        $querySelect = "select * from tbimagetouristicplace where touristicplace = " . 
+                $idTouristicPlace . ";";
         $result = mysqli_query($conn, $querySelect);
         mysqli_close($conn);
 
-        $row = mysqli_fetch_array($result);
-        $currentImageTouristicPlace = new ImageTouristicPlace($row['idtbimagetouristicplace'], 
+        $imageTouristicPlaces = [];
+        while ($row = mysqli_fetch_array($result)) {
+            $currentImageTouristicPlace = new ImageTouristicPlace($row['idtbimagetouristicplace'], 
                     $row['imagepath'], $row['touristicplace']);
+            array_push($imageTouristicPlaces, $currentImageTouristicPlace);
+        }
 
-        return $currentImageTouristicPlace;
+        return $imageTouristicPlaces;
     }
 
 }

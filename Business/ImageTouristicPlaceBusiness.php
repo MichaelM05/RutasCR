@@ -1,6 +1,6 @@
 <?php
 
-include '../Data/ImageTouristicPlaceData.php';
+include_once '../Data/ImageTouristicPlaceData.php';
 
 class ImageTouristicPlaceBusiness {
 
@@ -26,8 +26,8 @@ class ImageTouristicPlaceBusiness {
         return $this->imageTouristicPlaceData->getAllTBImageTouristicPlacees();
     }
 
-    public function getImageTouristicPlaceById($idImageTouristicPlace) {
-        return $this->imageTouristicPlaceData->getImageTouristicPlaceById($idImageTouristicPlace);
+    public function getImageTouristicPlaceByPlace($idTouristicPlace) {
+        return $this->imageTouristicPlaceData->getImageTouristicPlaceByPlace($idTouristicPlace);
     }
     
 }

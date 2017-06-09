@@ -1,6 +1,6 @@
 <?php
 
-include '../Data/VideoTouristicPlaceData.php';
+include_once '../Data/VideoTouristicPlaceData.php';
 
 class VideoTouristicPlaceBusiness {
 
@@ -26,8 +26,8 @@ class VideoTouristicPlaceBusiness {
         return $this->videoTouristicPlaceData->getAllTBVideoTouristicPlacees();
     }
 
-    public function getVideoTouristicPlaceById($idVideoTouristicPlace) {
-        return $this->videoTouristicPlaceData->getVideoTouristicPlaceById($idVideoTouristicPlace);
+    public function getVideoTouristicPlaceByPlace($idTouristicPlace) {
+        return $this->videoTouristicPlaceData->getVideoTouristicPlaceByPlace($idTouristicPlace);
     }
         
     

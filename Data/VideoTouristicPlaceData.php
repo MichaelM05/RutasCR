@@ -1,7 +1,7 @@
 <?php
 
-include_once './Data.php';
-include '../Domain/VideoTouristicPlace.php';
+include_once 'Data.php';
+include_once '../Domain/VideoTouristicPlace.php';
 
 class VideoTouristicPlaceData extends Data {
 
@@ -74,20 +74,23 @@ class VideoTouristicPlaceData extends Data {
         return $videoTouristicPlaces;
     }
 
-    public function getVideoTouristicPlaceById($idVideoTouristicPlace) {
+    public function getVideoTouristicPlaceByPlace($idTouristicPlace) {
         $conn = mysqli_connect($this->server, $this->user, $this->password, $this->db);
         $conn->set_charset('utf8');
 
-        $querySelect = "select * from tbvideotouristicplace where idtbvideotouristicplace = " . 
-                $idVideoTouristicPlace . ";";
+        $querySelect = "select * from tbvideotouristicplace where touristicplace = " . 
+                $idTouristicPlace . ";";
         $result = mysqli_query($conn, $querySelect);
         mysqli_close($conn);
 
-        $row = mysqli_fetch_array($result);
-        $currentVideoTouristicPlace = new VideoTouristicPlace($row['idtbvideotouristicplace'], 
+        $videoTouristicPlaces = [];
+        while ($row = mysqli_fetch_array($result)) {
+            $currentVideoTouristicPlace = new VideoTouristicPlace($row['idtbvideotouristicplace'], 
                     $row['videopath'], $row['touristicplace']);
+            array_push($videoTouristicPlaces, $currentVideoTouristicPlace);
+        }
 
-        return $currentVideoTouristicPlace;
+        return $videoTouristicPlaces;
     }
 
 }

@@ -1,6 +1,8 @@
 <?php
 
 include_once '../Business/TouristicPlaceBusiness.php';
+include_once '../Business/VideoTouristicPlaceBusiness.php';
+include_once '../Business/ImageTouristicPlaceBusiness.php';
 
 class TouristicPlaceAPI {
 
@@ -29,6 +31,8 @@ class TouristicPlaceAPI {
     function getToursiticPlaceByLocation() {
         if ($_GET['action'] == 'touristicplaces') {
             $tpb = new TouristicPlaceBusiness();
+            $ipb = new ImageTouristicPlaceBusiness();
+            $vpb = new VideoTouristicPlaceBusiness();
             //Decodifica un string de JSON
             $obj = json_decode(file_get_contents('php://input'));
             $objArr = (array) $obj;
@@ -37,7 +41,9 @@ class TouristicPlaceAPI {
             } else if (isset($obj->latitude, $obj->length)){
                 $result = $tpb->getTouristicPlaceByLocation($obj->latitude, $obj->length);
                 if (!is_null($result)) {
-                    echo json_encode($this->toArray($result), JSON_PRETTY_PRINT);
+                    $images = $ipb->getImageTouristicPlaceByPlace($result->getIdTouristicPlace());
+                    $videos = $vpb->getVideoTouristicPlaceByPlace($result->getIdTouristicPlace());
+                    echo json_encode($this->toArray($result, $images, $videos), JSON_PRETTY_PRINT);
                 } else {
                     $this->response(200, "error", "not found touristic place");
                 }
@@ -49,7 +55,15 @@ class TouristicPlaceAPI {
         }
     }
 
-    function toArray($touristicPlace) {
+    function toArray($touristicPlace, $images, $videos) {
+        $imagesArray = [];
+        $videosArray = [];
+        foreach ($images as $currentImage) {
+            array_push($imagesArray, $currentImage->getImagePath());
+        }
+        foreach ($videos as $currentVideo) {
+            array_push($videosArray, $currentVideo->getVideoPath());
+        }
         $touristicPlaceArray = array(
             'idTouristicPlace' => $touristicPlace->getIdTouristicPlace(),
             'nameTouristicPlace' => $touristicPlace->getNameTouristicPlace(),
@@ -57,7 +71,9 @@ class TouristicPlaceAPI {
             'latitude' => $touristicPlace->getLatitude(),
             'length' => $touristicPlace->getLength(),
             'price' => $touristicPlace->getPrice(),
-            'typeActivity' => $touristicPlace->getTypeActivity());
+            'typeActivity' => $touristicPlace->getTypeActivity(),
+            'images' => $imagesArray,
+            'videos' => $videosArray);
         return $touristicPlaceArray;
     }
 
