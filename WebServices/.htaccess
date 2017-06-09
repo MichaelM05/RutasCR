@@ -1,7 +1,7 @@
 RewriteEngine On
 
 RewriteRule ^(touristicplaces)$ TouristicPlaceAPI.php?action=$1 [L,QSA]
-
+RewriteRule ^(searchtouristicplaces)$ TouristicPlaceAPI.php?action=$1 [L,QSA]
 
 RewriteRule ^(users)$ UserAPI.php?action=$1
 RewriteRule ^(users)/([0-9]+) UserAPI.php?action=$1&id=$2 [L,QSA]

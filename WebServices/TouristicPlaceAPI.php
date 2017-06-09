@@ -3,6 +3,7 @@
 include_once '../Business/TouristicPlaceBusiness.php';
 include_once '../Business/VideoTouristicPlaceBusiness.php';
 include_once '../Business/ImageTouristicPlaceBusiness.php';
+include_once '../Algotithms/SearchAlgorithm.php';
 
 class TouristicPlaceAPI {
 
@@ -11,10 +12,13 @@ class TouristicPlaceAPI {
         $method = $_SERVER['REQUEST_METHOD'];
         switch ($method) {
             case 'GET':
-                echo 'GET';
                 break;
             case 'POST'://inserta
-                $this->getToursiticPlaceByLocation();
+                if($_GET['action'] == 'touristicplaces') {
+                    $this->getToursiticPlaceByLocation();
+                } else if ($_GET['action'] == 'searchtouristicplaces') {
+                    $this->getPlaces();
+                }
                 break;
             case 'PUT'://actualiza
                 echo 'PUT';
@@ -26,6 +30,49 @@ class TouristicPlaceAPI {
                 echo 'METODO NO SOPORTADO';
                 break;
         }
+    }
+    
+    function getPlaces() {
+        if ($_GET['action'] == 'searchtouristicplaces') {
+            $ipb = new ImageTouristicPlaceBusiness();
+            $vpb = new VideoTouristicPlaceBusiness();
+            $tpb = new TouristicPlaceBusiness();
+            //Decodifica un string de JSON
+            $obj = json_decode(file_get_contents('php://input'));
+            $objArr = (array) $obj;
+            if (empty($objArr)) {
+                $this->response(422, "error", "Nothing to add. Check json");
+            } else if (isset($obj->activity, $obj->price, $obj->duration, $obj->distance, $obj->initPoint)){
+                $result = getPlaces($obj->activity, $obj->price, $obj->duration, $obj->distance, $obj->initPoint);
+                if (!is_null($result)) {
+                        $places = [];
+                        foreach ($result as $place) {
+                            $images = $ipb->getImageTouristicPlaceByPlace($place->getIdTouristicPlace());
+                            $videos = $vpb->getVideoTouristicPlaceByPlace($place->getIdTouristicPlace());
+                            echo json_encode($this->toArray($place, $images, $videos), JSON_PRETTY_PRINT);
+                        }
+                    echo json_encode($places, JSON_PRETTY_PRINT);
+                } else {
+                    $this->response(200, "error", "not found routes");
+                }
+            } else {
+                $this->response(422, "error", "The property is not defined");
+            }
+        } else {
+            $this->response(400, "Error", "Error");
+        }
+    }
+
+    function toArrayTP($touristicPlace) {
+        $touristicPlaceArray = array(
+            'idTouristicPlace' => $touristicPlace->getIdTouristicPlace(),
+            'nameTouristicPlace' => $touristicPlace->getNameTouristicPlace(),
+            'descriptionTouristicPlace' => $touristicPlace->getDescriptionTouristicPlace(),
+            'latitude' => $touristicPlace->getLatitude(),
+            'length' => $touristicPlace->getLength(),
+            'price' => $touristicPlace->getPrice(),
+            'typeActivity' => $touristicPlace->getTypeActivity());
+        return $touristicPlaceArray;
     }
     
     function getToursiticPlaceByLocation() {

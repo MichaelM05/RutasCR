@@ -13,7 +13,7 @@ class RoutesAPI {
                 echo 'GET';
                 break;
             case 'POST'://inserta
-                $this->getToursiticPlaceByLocation();
+                $this->getRoutes();
                 break;
             case 'PUT'://actualiza
                 echo 'PUT';
@@ -27,7 +27,7 @@ class RoutesAPI {
         }
     }
     
-    function getToursiticPlaceByLocation() {
+    function getRoutes() {
         if ($_GET['action'] == 'routes') {
             $tpb = new TouristicPlaceBusiness();
             //Decodifica un string de JSON
