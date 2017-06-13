@@ -22,10 +22,10 @@ class Data {
                 break;
             default: //Hosting
                 $this->isActive = false;
-                $this->server = "";
-                $this->user = "";
-                $this->password = "";
-                $this->db = "";
+                $this->server = "mysql.hostinger.es";
+                $this->user = "u536767961_rutas";
+                $this->password = "expertos";
+                $this->db = "u536767961_rutas";
                 break;
         }
     }

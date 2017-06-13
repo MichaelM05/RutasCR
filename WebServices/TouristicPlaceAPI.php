@@ -49,7 +49,8 @@ class TouristicPlaceAPI {
                         foreach ($result as $place) {
                             $images = $ipb->getImageTouristicPlaceByPlace($place->getIdTouristicPlace());
                             $videos = $vpb->getVideoTouristicPlaceByPlace($place->getIdTouristicPlace());
-                            echo json_encode($this->toArray($place, $images, $videos), JSON_PRETTY_PRINT);
+                            $cp = $this->toArray($place, $images, $videos);
+                            array_push($places, $cp);
                         }
                     echo json_encode($places, JSON_PRETTY_PRINT);
                 } else {

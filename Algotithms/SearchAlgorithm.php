@@ -28,19 +28,8 @@ function getRoutes($activity, $price, $duration, $distance, $initPoint) {
         "8 0 más Km" => 0];
 
 
-    $conn = mysqli_connect('127.0.0.1', 'root', '', 'routescr');
-    $conn->set_charset('utf8');
-
-    $querySelect = "SELECT * FROM tbtouristicplace";
-    $result = mysqli_query($conn, $querySelect);
-    mysqli_close($conn);
-
-    $places = [];
-    while ($row = mysqli_fetch_array($result)) {
-        $currentPlace = new TouristicPlace(
-                $row['idtbtouristicplace'], $row['nametouristicplace'], $row['descriptiontouristicplace'], $row['latitude'], $row['length'], $row['price'], $activityValues[$row['typeactivity']]);
-        array_push($places, $currentPlace);
-    }
+    $tpb = new TouristicPlaceBusiness();
+    $places = $tpb->getAllTBTouristicPlacees();
 
     $vectorA = array(
         'price' => $priceValues[$price],
@@ -53,7 +42,7 @@ function getRoutes($activity, $price, $duration, $distance, $initPoint) {
     $placesReturn = euclides($vectorA, $places, $variables, $initPoint);
 
     $combinations = genCombinations($placesReturn, sizeof($placesReturn));
-
+    
     if (sizeof($combinations) > 10) {
         $combinations = array_slice($combinations, 0, 10);
     }
@@ -103,19 +92,8 @@ function getPlaces($activity, $price, $duration, $distance, $initPoint) {
         "8 0 más Km" => 0];
 
 
-    $conn = mysqli_connect('127.0.0.1', 'root', '', 'routescr');
-    $conn->set_charset('utf8');
-
-    $querySelect = "SELECT * FROM tbtouristicplace";
-    $result = mysqli_query($conn, $querySelect);
-    mysqli_close($conn);
-
-    $places = [];
-    while ($row = mysqli_fetch_array($result)) {
-        $currentPlace = new TouristicPlace(
-                $row['idtbtouristicplace'], $row['nametouristicplace'], $row['descriptiontouristicplace'], $row['latitude'], $row['length'], $row['price'], $activityValues[$row['typeactivity']]);
-        array_push($places, $currentPlace);
-    }
+    $tpb = new TouristicPlaceBusiness();
+    $places = $tpb->getAllTBTouristicPlacees();
 
     $vectorA = array(
         'price' => $priceValues[$price],
@@ -134,7 +112,6 @@ function getPlaces($activity, $price, $duration, $distance, $initPoint) {
     foreach ($placesReturn as $cplace) {
             $place = $tpb->getTouristicPlaceById($cplace);
             array_push($places, $place);
-        array_push($places, $place);
     }
     
     return $places;

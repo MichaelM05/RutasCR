@@ -56,6 +56,7 @@ function euclides($vectorA, $registrosBaseDatos, $variables, $initPoint) {
     $diferencias = orderArray($diferencias, 'diferencia');
     
     $diferencias = array_slice($diferencias, 0, 7);
+      
 
     $diferencias = getId($diferencias);
     

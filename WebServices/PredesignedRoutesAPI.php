@@ -174,6 +174,7 @@ class PredesignedRoutesAPI {
     
     function toArrayRoute($predesignedRoute, $places) {
         $routeArray = array(
+            'idRoute' => $predesignedRoute->getIdPredesignedRoute(),
             'routeName' => $predesignedRoute->getNamePredesignedRoute(),
             'user' => $predesignedRoute->getUser(),
             'places' => $places
