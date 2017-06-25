@@ -1,3 +1,9 @@
+<?php
+     include_once '../Domain/CallAPI.php';
+    
+    $callApi = new CallAPI();
+    $url = "http://rutascr.esy.es/WebServices/routes";
+?>
 <!doctype html>
 <html class="no-js" lang="zxx">
     <head>

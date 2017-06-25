@@ -1,4 +1,6 @@
-<!doctype html>
+<?php
+
+?>
 <html class="no-js" lang="zxx">
     <head>
         <meta charset="utf-8">
@@ -108,7 +110,7 @@
                                         <div class="slider-text">
                                             <h2>Información de la ruta</h2><br><br>
                                         </div>
-                                        <div class="col-md-7 col-sm-8">
+                                        <div class="col-md-5 col-sm-8">
 
                                             <div class="row">
                                                 <div class="col-md-6 col-sm-6">
@@ -116,17 +118,14 @@
                                                     <p class="visible">Sitio 2</p>
                                                 </div>
                                                 <div class="col-md-6 col-sm-6">
-                                                    <p ><a href="site_info.php" class="visible">Detalle</a></p>
-                                                    <p ><a href="site_info.php" class="visible">Detalle</a></p>
+                                                    <p ><a href="" onclick="return false" data-toggle="modal" data-target="#site" class="visible">Detalle</a></p>
+                                                    <p ><a href="" onclick="return site(2);" data-toggle="modal" data-target="#site" class="visible">Detalle</a></p>
                                                 </div>
                                             </div>
                                             <br><br>
-                                            <a href="route_map.php" class="visible"> <h2>Mostrar Mapa</h2></a>
                                         </div>
-                                        <div class="col-md-5 col-sm-4">
-                                            <div class="slider-imgj mid-mrg">
-                                                <img src="../Images/catarata.jpg" alt="">
-                                            </div>
+                                        <div class="col-md-7 col-sm-4">
+                                            <div id="hastech"></div>
                                         </div>
                                          
                                     </div>
@@ -136,6 +135,29 @@
                     </div>
                 </div>
             </div>
+
+            <div id="site" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title" id="nameSite">Modal Header</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p id="description">Some text in the modal.</p><br>
+                            <div id="images"></div><br>
+                            <div id="video"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+
            
             <!-- footer area
             ============================================ -->
@@ -176,35 +198,42 @@
         <!-- plugins JS
         ============================================ -->		
         <script src="../Styles/js\plugins.js"></script>
+        
+        <script src="../Styles/js\plugins.js"></script>
+        
         <!-- google map api -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_qDiT4MyM7IxaGPbQyLnMjVUsJck02N0"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhoeSsQdd0bV6P7eRJLNdT1DW83unihfk"></script>
         <script>
-            var myCenter = new google.maps.LatLng(30.249796, -97.754667);
             function initialize()
             {
+                var directionsService = new google.maps.DirectionsService;
+                var directionsDisplay = new google.maps.DirectionsRenderer;
+                var myCenter = new google.maps.LatLng(30.249796, -97.754667);
                 var mapProp = {
                     center: myCenter,
                     scrollwheel: false,
-                    zoom: 15,
+                    zoom: 18,
                     mapTypeId: google.maps.MapTypeId.ROADMAP
                 };
                 var map = new google.maps.Map(document.getElementById("hastech"), mapProp);
-                var marker = new google.maps.Marker({
-                    position: myCenter,
-                    animation: google.maps.Animation.BOUNCE,
-                    icon: 'img/map-marker.png',
-                    map: map,
-                });
-                var styles = [
-                    {
-                        stylers: [
-                            {hue: "#c5c5c5"},
-                            {saturation: -100}
-                        ]
-                    },
-                ];
-                map.setOptions({styles: styles});
-                marker.setMap(map);
+                directionsDisplay.setMap(map);
+                directionsService.route({
+                origin: "San Jose, CR",
+                destination: "Cartago, CR",
+                waypoints: [{location: 'Paraiso, CR'}],
+                optimizeWaypoints: true,
+                travelMode: 'DRIVING'
+              }, function(response, status) {
+                if (status === 'OK') {
+                  directionsDisplay.setDirections(response);
+                } else {
+                  window.alert('Directions request failed due to ' + status);
+                }
+              });
+            }
+            
+            function site(n) {
+                
             }
             google.maps.event.addDomListener(window, 'load', initialize);
         </script>

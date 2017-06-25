@@ -140,24 +140,42 @@
                         <p>Criterios de Búsqueda </p>
                     </div>
                     <div class="row">
-                        <form action="./Presentation/routes_found.php" method="post">
+                        <form action="./Presentation/routes_found.php" method="post" id="myform">
                             <div class="col-md-6 col-sm-12 ">
                                 <div class="single-features-list text-left">
                                     <div class="feature-list-text">
-                                        <input name="txtPrice" type="text" placeholder="Precio" class="form-control">
+                                        <h4>Precio</h4>
+                                        <select name="cbPrice" class="form-control">
+                                            <option value="$0 - $5">$0 - $5</option>
+                                            <option value="$5 - $10">$5 - $10</option>
+                                            <option value="$10 - $20">$10 - $20</option>
+                                            <option value="$20 - $30">$20 - $30</option>
+                                            <option value="$30 o más">$30 o más</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="single-features-list text-left">
                                     <div class="feature-list-text">
                                         <div class="feature-list-text">
-                                            <input name="txtTime" type="text" placeholder="Duracion" class="form-control">
+                                            <h4>Duración</h4>
+                                            <select name="cbTime" class="form-control">
+                                            <option value="1 - 2 Horas">1 - 2 Horas</option>
+                                            <option value="2 - 4 Horas">2 - 4 Horas</option>
+                                            <option value="4 - 6 Horas">4 - 6 Horas</option>
+                                            <option value="6 - 8 Horas">6 - 8 Horas</option>
+                                            <option value="8 o más Horas">8 o más Horas</option>
+                                        </select>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="single-features-list text-left">
                                     <div class="feature-list-text">
+                                        <h4>Actividad</h4>
                                         <select name="cbActivity" class="form-control">
-                                            <option value="NA">Actividad</option>
+                                            <option value="Cultural">Cultural</option>
+                                            <option value="Montaña">Montaña</option>
+                                            <option value="Ecológico">Ecológico</option>
+                                            <option value="Recreativo">Recreativo</option>
                                         </select>
                                     </div>
                                 </div>						
@@ -165,13 +183,28 @@
                             <div class="col-md-6 col-sm-12">
                                 <div class="single-features-list text-left">
                                     <div class="feature-list-text">
-                                        <input name="txtDistance" type="text" placeholder="Distancia" class="form-control">
+                                        <h4>Distacia</h4>
+                                       <select name="cbDistance" class="form-control">
+                                            <option value="1 - 2 Km">1 - 2 Km</option>
+                                            <option value="2 - 4 Km">2 - 4 Km</option>
+                                            <option value="4 - 6 Km">4 - 6 Km</option>
+                                            <option value="6 - 8 Km">6 - 8 Km</option>
+                                            <option value="8 o más Km">8 o más Km</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="single-features-list text-left">
                                     <div class="feature-list-text">
-                                        <select name="cbOrigin" class="form-control">
+                                        <h4>Punto de Origen</h4>
+                                        <select name="cbOrigin" id="cbOrigin" class="form-control">
                                             <option value="NA">Mi ubicación</option>
+                                            <option value="Alajuela">Alajuela</option>
+                                            <option value="Cartago">Cartago</option>
+                                            <option value="Guanacaste">Guanacaste</option>
+                                            <option value="Heredia">Heredia</option>
+                                            <option value="Limón">Limón</option>
+                                            <option value="San José">San José</option>
+                                            <option value="Puntarenas">Puntarenas</option>
                                         </select>
                                     </div>
                                 </div>
@@ -181,6 +214,8 @@
                                     </div>
                                 </div>						
                             </div>
+                            <input type="hidden" id="lat">
+                            <input type="hidden" id="leng">
                         </form>
                     </div>
                 </div>
@@ -226,12 +261,6 @@
                 <div class="container">
                     <div class="col-md-12 text-center">
                         <div class="footer-all">
-                            <!--                            <div class="footer-logo logo">
-                                                            <a href="#"><img src="Styles/img\logo\2.png" alt=""></a>
-                                                        </div>
-                                                        <div class="footer-icon">
-                                                            <p>Lo mejor en rutas turísticas en el país.</p>
-                                                        </div>-->
                             <div class="footer-text">
                                 <span>
                                     Copyright©
@@ -267,5 +296,80 @@
         <!-- main JS
         ============================================ -->		
         <script src="Styles/js\main.js"></script>
+        <script src="Styles/js\jquery.blockUI.js"></script>
+        
+        <script type="text/javascript">
+            var lat ="";
+            var leng ="";
+            $('#myform').submit(function() {
+                if(lat === "" && leng === ""){
+                    alert("entro");
+                    var ubicacion = $('#cbOrigin :selected').val();
+                    switch (ubicacion){
+                            case "Cartago":
+                                lat = "9.862251741694937";
+                                leng = "-83.91546249389648";
+                                break;
+                            case "San José":
+                                lat = "9.915826049729528";
+                                leng = "-84.06944274902344";
+                                break;
+                            case "Limón":
+                                lat = "9.98805634887536";
+                                leng = "-83.04376602172852";
+                                break;
+                            case "Heredia":
+                                lat = "10.0023600";
+                                leng = "-84.1165100";
+                                break;
+                            case "Puntarenas":
+                                lat = "9.9762500";
+                                leng = "-84.8383600";
+                                break;
+                            case "Guanacaste":
+                                lat = "10,4958";
+                                leng = "-85,355";
+                                break;
+                            case "Alajuela":
+                                lat = "10.0162500";
+                                leng = "-84.2116300";
+                                break;
+                            default :
+                                if (!navigator.geolocation){
+                                    return;
+                                }
+                                function success(position) {
+                                  setTimeout($.unblockUI, 0); 
+                                  lat  = position.coords.latitude;
+                                  leng = position.coords.longitude;
+                                  $('#myform').submit();
+
+                                }
+                                navigator.geolocation.getCurrentPosition(success);
+                                $.blockUI({
+                                css: {
+                                    border: 'none',
+                                    padding: '15px',
+                                    backgroundColor: '#000',
+                                    '-webkit-border-radius': '10px',
+                                    '-moz-border-radius': '10px',
+                                    opacity: .5,
+                                    color: '#fff'
+                                },
+                                message: "Localizando..."
+                                });
+                                
+                                break;
+                        }
+                    }else{
+                        $("#lat").val(lat);
+                        $("#leng").val(leng);
+                        return true;
+                        
+                    }
+
+                return false; // return false to cancel form action
+            });
+        </script>
     </body>
 </html>

@@ -1166,7 +1166,6 @@ p.about-pb {
     background: -moz-linear-gradient(45deg, #34173f 29%, #2727c1 99%);
     background: -webkit-linear-gradient(45deg, #34173f 29%, #2727c1 99%);
     background: linear-gradient(45deg, #34173f 29%, #2727c1 99%);
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#34173f', endColorstr='#2727c1', GradientType=1);
     bottom: 0;
     content: "";
     left: 0;
@@ -1889,3 +1888,8 @@ button.submit:hover {
     font-size: 20px;
     color: white;
 }
+
+#site {
+        top:15%;
+        outline: none;
+       }

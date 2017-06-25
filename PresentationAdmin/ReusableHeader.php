@@ -11,6 +11,8 @@
         <!-- CUSTOM STYLES-->
         <link href="../assets/css/custom.css" rel="stylesheet" />
         <!-- GOOGLE FONTS-->
+        <link href="../Styles/css/style.css" rel="stylesheet" />
+        
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
         <script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
