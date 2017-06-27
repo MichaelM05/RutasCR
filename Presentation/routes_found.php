@@ -3,6 +3,20 @@
     
     $callApi = new CallAPI();
     $url = "http://rutascr.esy.es/WebServices/routes";
+    
+    $valores = array();
+    $valores['price'] = $_POST['cbPrice'];
+    $valores['activity'] = $_POST['cbActivity'];
+    $valores['duration'] = $_POST['cbTime'];
+    $valores['distance'] = $_POST['cbDistance'];
+    $valores['initPoint'] = $_POST['lat'].",".$_POST['leng'];
+
+    $data = json_encode($valores);
+    $result = $callApi->callAPIMethod("POST",$url,$data);
+    $routes = json_decode($result);
+    session_start();
+    $_SESSION['routes'] = $routes;
+
 ?>
 <!doctype html>
 <html class="no-js" lang="zxx">
@@ -116,42 +130,22 @@
                                         <div class="col-md-12 col-sm-12">
 
                                             <div class="row">
-                                                <div class="col-md-4 col-sm-6">
-                                                    <img src="../Images/catarata.jpg" alt="">
-                                                </div>
-                                                <div class="col-md-2 col-sm-6">
-                                                    <p class="visible">Ruta 1 </p><br>
-                                                    <a href="route_info.php" class="visible">Ver mas</a>
-
-                                                </div>
-                                                <div class="col-md-4 col-sm-6">
-                                                    <img src="../Images/catarata.jpg" alt="">
-                                                </div>
-                                                <div class="col-md-2 col-sm-6">
-                                                    <p class="visible">Ruta 3 </p><br>
-                                                    <a href="route_info.php" class="visible">Ver mas</a>
-
-                                                </div>
+                                                <?php
+                                                for ($index = 1;$index <= count($routes);$index++) {
+                                                           ?>
+                                                            <div class="col-md-4 col-sm-6">
+                                                                <img src="../Images/catarata.jpg" alt="">
+                                                            </div>
+                                                            <div class="col-md-2 col-sm-6">
+                                                                <p class="visible">Ruta <?php echo $index ?> </p><br>
+                                                                <?php echo '<a href="route_info.php?id=' .($index-1). '" class="visible">Ver mas</a>'?>
+                                                            </div>
+                                                           <?php
+                                                        
+                                                }
+                                                ?>
                                             </div>
                                             <br>
-                                             <div class="row">
-                                                <div class="col-md-4 col-sm-6">
-                                                    <img src="../Images/catarata.jpg" alt="">
-                                                </div>
-                                                <div class="col-md-2 col-sm-6">
-                                                    <p class="visible">Ruta 2 </p><br>
-                                                    <a href="route_info.php" class="visible">Ver mas</a>
-
-                                                </div>
-                                                <div class="col-md-4 col-sm-6">
-                                                    <img src="../Images/catarata.jpg" alt="">
-                                                </div>
-                                                <div class="col-md-2 col-sm-6">
-                                                    <p class="visible">Ruta 4 </p><br>
-                                                    <a href="route_info.php" class="visible">Ver mas</a>
-
-                                                </div>
-                                            </div>
                                         </div>
                                          
                                     </div>

@@ -1,5 +1,9 @@
 <?php
-
+    session_start();
+    $routes = $_SESSION['routes'];
+    $id = $_GET['id'];
+    $route = $routes[$id];
+    $size = count($route);
 ?>
 <html class="no-js" lang="zxx">
     <head>
@@ -111,17 +115,29 @@
                                             <h2>Información de la ruta</h2><br><br>
                                         </div>
                                         <div class="col-md-5 col-sm-8">
-
-                                            <div class="row">
+                                            <?php
+                                            for ($index = 0; $index < count($route); $index++) {
+                                                $site = $route[$index];
+                                            ?>
+                                                <div class="row">
                                                 <div class="col-md-6 col-sm-6">
-                                                    <p class="visible">Sitio 1</p>
-                                                    <p class="visible">Sitio 2</p>
+                                                <?php
+                                                    if($index == 0){
+                                                        echo '<p class="visible">Usted esta aquí</p>';
+                                                    }else{
+                                                        echo '<p class="visible">'.$site->nameTouristicPlace.'</p>';
+                                                    }
+                                                ?>
                                                 </div>
                                                 <div class="col-md-6 col-sm-6">
-                                                    <p ><a href="" onclick="return false" data-toggle="modal" data-target="#site" class="visible">Detalle</a></p>
-                                                    <p ><a href="" onclick="return site(2);" data-toggle="modal" data-target="#site" class="visible">Detalle</a></p>
+                                                    <?php
+                                                    echo '<p ><a href="" onclick="return site('.$site->latitude.','.$site->length.');" data-toggle="modal" data-target="#site" class="visible">Detalle</a></p>';
+                                                    ?>
                                                 </div>
-                                            </div>
+                                            </div><br>
+                                            <?php
+                                               }
+                                            ?>
                                             <br><br>
                                         </div>
                                         <div class="col-md-7 col-sm-4">
@@ -204,10 +220,25 @@
         <!-- google map api -->
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhoeSsQdd0bV6P7eRJLNdT1DW83unihfk"></script>
         <script>
+            var route;
+            var size;
             function initialize()
             {
+                
+                route = <?php echo json_encode($route); ?>;
+                size = <?php echo $size ?>;
+                var origin = route[0].latitude+","+route[0].length;
+                var destiny = route[size-1].latitude+","+route[size-1].length;
+                var waypoints =  [];
+                for(var i=1;i<size-1;i++){
+                    waypoints.push({
+                    location: route[i].latitude+","+route[i].length
+                  });
+
+                }
                 var directionsService = new google.maps.DirectionsService;
                 var directionsDisplay = new google.maps.DirectionsRenderer;
+                directionsDisplay.setOptions( { suppressMarkers: true } );
                 var myCenter = new google.maps.LatLng(30.249796, -97.754667);
                 var mapProp = {
                     center: myCenter,
@@ -218,9 +249,9 @@
                 var map = new google.maps.Map(document.getElementById("hastech"), mapProp);
                 directionsDisplay.setMap(map);
                 directionsService.route({
-                origin: "San Jose, CR",
-                destination: "Cartago, CR",
-                waypoints: [{location: 'Paraiso, CR'}],
+                origin: origin,
+                destination: destiny,
+                waypoints: waypoints,
                 optimizeWaypoints: true,
                 travelMode: 'DRIVING'
               }, function(response, status) {
@@ -230,10 +261,28 @@
                   window.alert('Directions request failed due to ' + status);
                 }
               });
+                for(var i=0;i<size;i++){
+                    var pos = new google.maps.LatLng(route[i].latitude, route[i].length);
+                    var marker = new google.maps.Marker({
+                        position: pos,
+                        title: route[i].nameTouristicPlace,
+                        map: map
+                    });
+                    addClickHandler(marker);
+                       
+                    marker.setMap(map);
+                }
             }
             
-            function site(n) {
-                
+            function addClickHandler(theMarker) {
+                google.maps.event.addListener(theMarker, 'click', function() {
+                    site(theMarker.getPosition().lat(),theMarker.getPosition().lng());
+                    $('#site').modal('show'); 
+                  });
+                }
+            
+            function site(lat,len) {
+                document.getElementById("description").innerHTML=lat+","+len;
             }
             google.maps.event.addDomListener(window, 'load', initialize);
         </script>

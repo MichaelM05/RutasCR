@@ -214,8 +214,8 @@
                                     </div>
                                 </div>						
                             </div>
-                            <input type="hidden" id="lat">
-                            <input type="hidden" id="leng">
+                            <input type="hidden" id="lat" name="lat" value="NA">
+                            <input type="hidden" id="leng" name="leng" value="NA">
                         </form>
                     </div>
                 </div>
@@ -303,36 +303,56 @@
             var leng ="";
             $('#myform').submit(function() {
                 if(lat === "" && leng === ""){
-                    alert("entro");
                     var ubicacion = $('#cbOrigin :selected').val();
                     switch (ubicacion){
                             case "Cartago":
                                 lat = "9.862251741694937";
                                 leng = "-83.91546249389648";
+                                $("#lat").val(lat);
+                                $("#leng").val(leng);
+                                return true;
                                 break;
                             case "San José":
                                 lat = "9.915826049729528";
                                 leng = "-84.06944274902344";
+                                $("#lat").val(lat);
+                                $("#leng").val(leng);
+                                return true;
                                 break;
                             case "Limón":
                                 lat = "9.98805634887536";
                                 leng = "-83.04376602172852";
+                                $("#lat").val(lat);
+                                $("#leng").val(leng);
+                                return true;
                                 break;
                             case "Heredia":
                                 lat = "10.0023600";
                                 leng = "-84.1165100";
+                                $("#lat").val(lat);
+                                $("#leng").val(leng);
+                                return true;
                                 break;
                             case "Puntarenas":
                                 lat = "9.9762500";
                                 leng = "-84.8383600";
+                                $("#lat").val(lat);
+                                $("#leng").val(leng);
+                                return true;
                                 break;
                             case "Guanacaste":
                                 lat = "10,4958";
                                 leng = "-85,355";
+                                $("#lat").val(lat);
+                                $("#leng").val(leng);
+                                return true;
                                 break;
                             case "Alajuela":
                                 lat = "10.0162500";
                                 leng = "-84.2116300";
+                                $("#lat").val(lat);
+                                $("#leng").val(leng);
+                                return true;
                                 break;
                             default :
                                 if (!navigator.geolocation){
