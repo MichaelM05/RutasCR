@@ -1,8 +1,14 @@
 <?php
     session_start();
-    $routes = $_SESSION['routes'];
+    $recomendation = $_SESSION['recomendation'];
     $id = $_GET['id'];
-    $route = $routes[$id];
+    if($recomendation){
+        $routes = $_SESSION['routesP'];
+        $route = $routes[$id]->places;
+    }else{
+        $routes = $_SESSION['routes'];
+        $route = $routes[$id];
+    }
     $size = count($route);
 ?>
 <html class="no-js" lang="zxx">
@@ -80,7 +86,7 @@
                         <div class="row">
                             <div class="col-md-12 col-xs-12">
                                 <div class="logo float-left navbar-header">
-                                    <a class="navbar-brand" href="../index.html"><img src="../Images/logo.jpeg" width="80px" height="80px" alt=""></a>
+                                    <a class="navbar-brand" href="../index.php"><img src="../Images/logo.jpeg" width="80px" height="80px" alt=""></a>
                                     <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-2">
                                         <i class="fa fa-bars menu-open"></i>
                                         <i class="fa fa-times menu-close"></i>
@@ -91,7 +97,7 @@
                                         <ul class="menu one-page">
                                             <li><a href="../index.php">Inicio </a></li>
                                             <li><a href="../index.php#search-area">Busqueda </a></li>
-                                            <li><a href="../index.php#features-area">Ver Sugerencias </a></li>
+                                            <li><a href="routes_recomendation.php">Ver Sugerencias </a></li>
                                             <li><a href="../index.php#screenshort-area">Iniciar Sesión </a></li>
                                             <li><a href="./Presentation/SiteMap.php">Mapa sitio</a></li>
                                         </ul>
@@ -122,7 +128,7 @@
                                                 <div class="row">
                                                 <div class="col-md-6 col-sm-6">
                                                 <?php
-                                                    if($index == 0){
+                                                    if($index == 0 && $recomendation == false){
                                                         echo '<p class="visible">Usted esta aquí</p>';
                                                     }else{
                                                         echo '<p class="visible">'.$site->nameTouristicPlace.'</p>';
@@ -131,7 +137,7 @@
                                                 </div>
                                                 <div class="col-md-6 col-sm-6">
                                                     <?php
-                                                    echo '<p ><a href="" onclick="return site('.$site->latitude.','.$site->length.');" data-toggle="modal" data-target="#site" class="visible">Detalle</a></p>';
+                                                    echo '<p ><a href="" onclick="return site('.$index.');" data-toggle="modal" data-target="#site" class="visible">Detalle</a></p>';
                                                     ?>
                                                 </div>
                                             </div><br>
@@ -268,21 +274,22 @@
                         title: route[i].nameTouristicPlace,
                         map: map
                     });
-                    addClickHandler(marker);
+                    addClickHandler(marker,i);
                        
                     marker.setMap(map);
                 }
             }
             
-            function addClickHandler(theMarker) {
+            function addClickHandler(theMarker,n) {
                 google.maps.event.addListener(theMarker, 'click', function() {
-                    site(theMarker.getPosition().lat(),theMarker.getPosition().lng());
-                    $('#site').modal('show'); 
+                    site(n);
+                    $('#site').modal('show');
                   });
                 }
             
-            function site(lat,len) {
-                document.getElementById("description").innerHTML=lat+","+len;
+            function site(n) {
+                        document.getElementById("nameSite").innerHTML= route[n].nameTouristicPlace;
+                        document.getElementById("description").innerHTML= route[n].descriptionTouristicPlace;               
             }
             google.maps.event.addDomListener(window, 'load', initialize);
         </script>

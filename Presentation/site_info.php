@@ -74,7 +74,7 @@
                         <div class="row">
                             <div class="col-md-12 col-xs-12">
                                 <div class="logo float-left navbar-header">
-                                     <a class="navbar-brand" href="../index.html"><img src="../Images/logo.jpeg" width="80px" height="80px" alt=""></a>
+                                     <a class="navbar-brand" href="../index.php"><img src="../Images/logo.jpeg" width="80px" height="80px" alt=""></a>
                                     <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-2">
                                         <i class="fa fa-bars menu-open"></i>
                                         <i class="fa fa-times menu-close"></i>
@@ -85,7 +85,7 @@
                                         <ul class="menu one-page">
                                             <li><a href="../index.php">Inicio </a></li>
                                             <li><a href="../index.php#search-area">Busqueda </a></li>
-                                            <li><a href="../index.php#features-area">Ver Sugerencias </a></li>
+                                            <li><a href="routes_recomendation.php">Ver Sugerencias </a></li>
                                             <li><a href="../index.php#screenshort-area">Iniciar Sesión </a></li>
                                             <li><a href="./Presentation/SiteMap.php">Mapa sitio</a></li>
                                         </ul>

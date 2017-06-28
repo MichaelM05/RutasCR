@@ -1,4 +1,16 @@
-<!doctype html>
+<?php
+     session_start();
+     include_once '../Domain/CallAPI.php';
+    
+    $callApi = new CallAPI();
+    $url = "http://rutascr.esy.es/WebServices/predesignedroutes";
+    
+    $result = $callApi->callAPIMethod("GET",$url);
+    $routes = json_decode($result);
+    $_SESSION['routesP'] = $routes;
+    $_SESSION['recomendation'] = true;
+
+?>
 <html class="no-js" lang="zxx">
     <head>
         <meta charset="utf-8">
@@ -74,7 +86,7 @@
                         <div class="row">
                             <div class="col-md-12 col-xs-12">
                                 <div class="logo float-left navbar-header">
-                                    <a class="navbar-brand" href="../index.html"><img src="../Styles/img\logo\logo.png" alt=""></a>
+                                    <a class="navbar-brand" href="../index.php"><img src="../Styles/img\logo\logo.png" alt=""></a>
                                     <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-2">
                                         <i class="fa fa-bars menu-open"></i>
                                         <i class="fa fa-times menu-close"></i>
@@ -85,7 +97,7 @@
                                         <ul class="menu one-page">
                                             <li><a href="../index.php">Inicio </a></li>
                                             <li><a href="../index.php#search-area">Busqueda </a></li>
-                                            <li><a href="../index.php#features-area">Ver Sugerencias </a></li>
+                                            <li><a href="routes_recomendation.php">Ver Sugerencias </a></li>
                                             <li><a href="../index.php#screenshort-area">Iniciar Sesión </a></li>
                                             <li><a href="./Presentation/SiteMap.php">Mapa sitio</a></li>
                                         </ul>
@@ -108,44 +120,24 @@
                                             <h2>Rutas Recomendadas</h2><br><br>
                                         </div>
                                         <div class="col-md-12 col-sm-12">
-
                                             <div class="row">
-                                                <div class="col-md-4 col-sm-6">
-                                                    <img src="../Images/catarata.jpg" alt="">
-                                                </div>
-                                                <div class="col-md-2 col-sm-6">
-                                                    <p class="visible">Ruta 1 </p><br>
-                                                    <a href="route_info.php" class="visible">Ver mas</a>
-
-                                                </div>
-                                                <div class="col-md-4 col-sm-6">
-                                                    <img src="../Images/catarata.jpg" alt="">
-                                                </div>
-                                                <div class="col-md-2 col-sm-6">
-                                                    <p class="visible">Ruta 3 </p><br>
-                                                    <a href="route_info.php" class="visible">Ver mas</a>
-
-                                                </div>
+                                                <?php
+                                                for ($index = 1;$index <= count($routes);$index++) {
+                                                    $route = $routes[$index-1];
+                                                           ?>
+                                                            <div class="col-md-4 col-sm-6">
+                                                                <img src="../Images/catarata.jpg" alt="">
+                                                            </div>
+                                                            <div class="col-md-2 col-sm-6">
+                                                                <p class="visible"><?php echo $route->routeName?> </p><br>
+                                                                <?php echo '<a href="route_info.php?id=' .($index-1). '" class="visible">Ver mas</a>'?>
+                                                            </div>
+                                                           <?php
+                                                        
+                                                }
+                                                ?>
                                             </div>
                                             <br>
-                                             <div class="row">
-                                                <div class="col-md-4 col-sm-6">
-                                                    <img src="../Images/catarata.jpg" alt="">
-                                                </div>
-                                                <div class="col-md-2 col-sm-6">
-                                                    <p class="visible">Ruta 2 </p><br>
-                                                    <a href="route_info.php" class="visible">Ver mas</a>
-
-                                                </div>
-                                                <div class="col-md-4 col-sm-6">
-                                                    <img src="../Images/catarata.jpg" alt="">
-                                                </div>
-                                                <div class="col-md-2 col-sm-6">
-                                                    <p class="visible">Ruta 4 </p><br>
-                                                    <a href="route_info.php" class="visible">Ver mas</a>
-
-                                                </div>
-                                            </div>
                                         </div>
                                          
                                     </div>

@@ -85,7 +85,7 @@
                                         <ul class="menu one-page">
                                             <li class="active"><a href="#home-area">Inicio </a></li>
                                             <li><a href="#search-area">Busqueda </a></li>
-                                            <li><a href="#features-area">Ver Sugerencias </a></li>
+                                            <li><a href="#preroutes-area">Ver Sugerencias </a></li>
                                             <li><a href="./PresentationAdmin/loginRegister.php">Iniciar Sesión/Registro</a></li>
                                             <li><a href="./Presentation/SiteMap.php">Mapa sitio</a></li>
                                         </ul>
