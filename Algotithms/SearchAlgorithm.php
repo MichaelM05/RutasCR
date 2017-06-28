@@ -2,6 +2,7 @@
 
 include(dirname(__FILE__) . "/EuclidesAlgorithm.php");
 include(dirname(__FILE__) . "/CombinationsAlgorithm.php");
+include(dirname(__FILE__) . "/BayesAlgoritmo.php");
 include_once '../Domain/TouristicPlace.php';
 include_once '../Business/TouristicPlaceBusiness.php';
 
