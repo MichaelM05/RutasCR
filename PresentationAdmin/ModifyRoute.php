@@ -1,7 +1,6 @@
 <?php
 include './ReusableHeader.php';
 ?>
-
 <div id="wrapper">  
     <!-- /. NAV SIDE  -->
     <div id="page-wrapper" >

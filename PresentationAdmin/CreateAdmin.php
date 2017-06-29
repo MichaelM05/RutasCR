@@ -14,7 +14,7 @@
 
             <div class="row center-block">
 
-                <form action="" method="POST" >
+                <form action="../Actions/UserActions.php" method="POST" >
                     <div class="col-lg-5 col-md-5">
                         <div class="form-group">
                             <label>Nombre</label>
@@ -38,7 +38,8 @@
                             <label>Contraseña</label>
                             <input type="password" id="txtPassword" name="txtPassword" class="form-control" />
                         </div>
-                    </div>               
+                    </div>
+                    <input type="hidden" id="insertUser" name="insertUser" value="insertUser"/>
                     <div class="col-lg-5 col-md-5">                        
                         <input type="submit" value="Crear" class="btn btn-success btn-lg btn-block">
                     </div>

@@ -71,9 +71,7 @@
 
                 <div id="login">   
                     <h1>Bienvenido de vuelta!</h1>
-
                     <form action="/" method="post">
-
                         <div class="field-wrap">
                             <label>
                                 Correo Electrónico<span class="req">*</span>
@@ -87,17 +85,11 @@
                             </label>
                             <input type="password"required autocomplete="off"/>
                         </div>
-
-
                         <!--<button class="button button-block"/>Iniciar Sesión</button>-->
                         <a class="button button-block" href="./index.php"><center>Iniciar Sesión</center></a>
-
                     </form>
-
                 </div>
-
             </div><!-- tab-content -->
-
         </div> <!-- /form -->
         <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 

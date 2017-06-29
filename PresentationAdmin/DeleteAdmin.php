@@ -1,7 +1,12 @@
-<?php include_once './ReusableHeader.php'; ?>     
+<?php
+include_once './ReusableHeader.php';
+include_once '../Business/UserBusiness.php';
+$userBusiness = new UserBusiness();
+$users = $userBusiness->getAllTBUsers();
+?>     
+
 
 <div id="wrapper">
-
     <!-- /. NAV SIDE  -->
     <div id="page-wrapper" >
         <div id="page-inner">
@@ -19,44 +24,30 @@
 
                     <div class="panel-heading ">Administradores</div>
                     <div class="panel-body">
-
-                        <div class="row center-block">   
-                            <div class="col-md-6">
-                                <label>Juan Pérez</label>                                        
-                            </div>
-                            <div class="col-md-6">
-                                <button class="btn btn-danger">Eliminar</button>
-                            </div>                             
-                        </div><hr/>
-
-                        <div class="row center-block">   
-                            <div class="col-md-6">
-                                <label>Diego Solano</label>                                        
-                            </div>
-                            <div class="col-md-6">
-                                <button class="btn btn-danger">Eliminar</button>
-                            </div>                             
-                        </div><hr />
-
-
-                        <div class="row center-block">   
-                            <div class="col-md-6">
-                                <label>María Vega:</label>                                        
-                            </div>
-                            <div class="col-md-6">
-                                <button class="btn btn-danger">Eliminar</button>
-                            </div>                             
-                        </div><hr />                               
-
-
+                        <?php
+                        foreach ($users as $currentUser) {
+                            ?>
+                            <form action="../Actions/UserActions.php" method="POST">
+                                <div class="row center-block">   
+                                    <div class="col-md-6">
+                                        <label><?php echo $currentUser->getFullName(); ?></label>                                        
+                                    </div>
+                                    <input type="hidden" id="idUser" name="idUser" value="<?php echo $currentUser->getIdUser(); ?>">
+                                    <input type="hidden" value="deleteAdmin" id="deleteAdmin" name="deleteAdmin">
+                                    <div class="col-md-6">
+                                        <input type="submit" class="btn btn-danger" value="Eliminar" />
+                                    </div>                             
+                                </div><hr/>
+                            </form>
+                            <?php
+                        }
+                        ?>                        
 
                     </div>
 
                 </div>      
 
             </div>
-
-
             <!-- /. ROW  -->           
         </div>
         <!-- /. PAGE INNER  -->

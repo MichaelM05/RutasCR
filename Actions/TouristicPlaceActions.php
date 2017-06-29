@@ -21,4 +21,18 @@ if (isset($_POST['add'])) {
     } else {
         header('location: ../PresentationAdmin/AddTouristicPlace.php?error=dberror');
     }
+}else if(isset ($_POST["deleteTouristic"])){
+    
+    $idTouristicPlace = $_POST["idSite"];
+    $touristicBusiness = new TouristicPlaceBusiness();
+    $result = $touristicBusiness->deleteTBTouristicPlace($idTouristicPlace);
+    
+    if($result){
+        header('location: ../PresentationAdmin/DeletePlacesRoute.php?success=success');
+    }else{
+        header('location: ../PresentationAdmin/DeletePlacesRoute.php?error=error');
+    }
+            
+    
+    
 }

@@ -12,45 +12,75 @@ include './ReusableHeader.php';
         </div>
         <hr>
         <div class="row">
-            <form action="" method="POST" >
+            <form action="../Actions/SearchTouristPlaceActions.php" method="POST" >
                 <div class="col-lg-5 col-md-5">
                     <div class="form-group">
                         <label>Precio</label>
-                        <input class="form-control" />
+                        <select name="cbPrice" class="form-control">
+                            <option value="$0 - $5">$0 - $5</option>
+                            <option value="$5 - $10">$5 - $10</option>
+                            <option value="$10 - $20">$10 - $20</option>
+                            <option value="$20 - $30">$20 - $30</option>
+                            <option value="$30 o más">$30 o más</option>
+                        </select>
                     </div>
                 </div>
                 <div class="col-lg-5 col-md-5">
                     <div class="form-group">
                         <label>Duración</label>
-                        <input class="form-control" />
+                        <select name="cbDuration" class="form-control">
+                            <option value="1 - 2 Horas">1 - 2 Horas</option>
+                            <option value="2 - 4 Horas">2 - 4 Horas</option>
+                            <option value="4 - 6 Horas">4 - 6 Horas</option>
+                            <option value="6 - 8 Horas">6 - 8 Horas</option>
+                            <option value="8 o más Horas">8 o más Horas</option>
+                        </select>
                     </div>
                 </div>
                 <div class="col-lg-5 col-md-5">
                     <div class="form-group">
                         <label>Actividad</label>
-                        <select class="form-control">
-                            <option value="1">Turismo de Montaña</option>
-                            <option value="2">Turismo Urbano</option>
-                            <option value="3">Turismo Extremo</option>
+                        <select name="cbActivity" id="cbActivity"class="form-control">
+                            <option value="Cultural">Cultural</option>
+                            <option value="Montaña">Montaña</option>
+                            <option value="Ecológico">Ecológico</option>
+                            <option value="Recreativo">Recreativo</option>
                         </select>
                     </div>
                 </div>
                 <div class="col-lg-5 col-md-5">
                     <div class="form-group">
                         <label>Distancia</label>
-                        <input class="form-control" />
+                        <select name="cbDistance" class="form-control">
+                            <option value="1 - 2 km">1 - 2 km</option>
+                            <option value="2 - 4 km">2 - 4 km</option>
+                            <option value="4 - 6 km">4 - 6 km</option>
+                            <option value="6 - 8 km">6 - 8 km</option>
+                            <option value="8 o más km">8 o más km</option>
+                        </select>
                     </div>
                 </div>
                 <div class="col-lg-5 col-md-5">
                     <div class="form-group">
                         <label>Punto de partida</label>
-                        <input class="form-control" />
+                        <select name="cbGoing" class="form-control">
+                            <option value="Mi ubicación">Mi ubicación</option>
+                            <option value="Alajuela">Alajuela</option>
+                            <option value="Cartago">Cartago</option>
+                            <option value="Guanacaste">Guanacaste</option>
+                            <option value="Heredia">Heredia</option>
+                            <option value="Limón">Limón</option>
+                            <option value="San José">San José</option>
+                            <option value="Puntarenas">Puntarenas</option>
+                        </select>
                     </div>
                 </div>
+                <input type="hidden" id="lat" name="lat">
+                <input type="hidden" id="leng" name="leng">
+                <input type="hidden" id="searchPre" name="searchPre">
                 <div class="col-lg-5 col-md-5">
                     <label></label>
-                    <!--<input type="submit" value="Buscar" class="btn btn-danger btn-lg btn-block">-->
-                    <a class="btn btn-success btn-lg btn-block" href="./ShowAvailablesPlaces.php">Buscar</a>
+                    <input type="submit" value="Buscar" class="btn btn-danger btn-lg btn-block">
                 </div>
             </form>
         </div>
@@ -63,3 +93,14 @@ include './ReusableHeader.php';
 <?php
 include './ReusableFooter.php';
 ?>
+<script>
+    $(document).ready(function obtener_localizacion() {
+        navigator.geolocation.getCurrentPosition(coordenadas);
+        function coordenadas(position) {
+            var latitud = position.coords.latitude;
+            var longitud = position.coords.longitude;
+            $("#lat").val(latitud);
+            $("#leng").val(longitud);
+        }
+    });
+</script>
