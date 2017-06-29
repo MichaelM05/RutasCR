@@ -30,6 +30,7 @@ if (isset($_SESSION["routesPred"])) {
                 $i = 0;
                 foreach ($routes as $currentRoute) {
                     $i++;
+
                     ?>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
                         <div class="div-square" id="site<?php echo $i; ?>">                            
@@ -39,7 +40,7 @@ if (isset($_SESSION["routesPred"])) {
                             <img height="170px" width="200px" src="<?php echo $images[0]; ?>" />
                             <h5><?php echo $currentRoute->nameTouristicPlace ?></h5>
                             <p><?php echo substr($currentRoute->descriptionTouristicPlace, 0, 100) . '...'; ?></p>
-                            <input type="submit" value="Agregar Sitio" onclick="addSitesRoute(<?php $currentRoute->idTouristicPlace; ?>,<?php echo $i; ?>)"class="btn btn-success" >
+                            <input type="submit" value="Agregar Sitio" onclick="addSitesRoute(<?php echo $currentRoute->idTouristicPlace; ?>,<?php echo $i; ?>)"class="btn btn-success" >
                         </div>
                     </div>
                     <?php
@@ -59,16 +60,15 @@ include './ReusableFooter.php';
 
 <script>
     var sites = [];
-    function addSitesRoute(idSite, count) {
+    function addSitesRoute(idSite , count) {
 
         sites.push(idSite);
         $("#site" + count).hide();
-        var sitesString = ""
+        var sitesString = "";
         for (var i = 0; i < sites.length; i++) {
             sitesString += sites[i] + ';';
         }
         $("#sites").val(sitesString);
-        alert(sitesString);
 
 
     }

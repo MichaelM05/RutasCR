@@ -73,7 +73,7 @@ include './ReusableFooter.php';
 
         sites.push(idSite);
         $("#site" + count).hide();
-        var sitesString = ""
+        var sitesString = "";
         for (var i = 0; i < sites.length; i++) {
             sitesString += sites[i] + ';';
         }

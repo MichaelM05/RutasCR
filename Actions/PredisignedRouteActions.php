@@ -60,7 +60,7 @@ if (isset($_POST["createRoute"])) {
     $result = $callApi->callAPIMethod("DELETE", $url, $idRoute);
     $results = json_decode($result);
 
-    if ($results['status'] === "success") {
+    if ($results->status === "success") {
         header('location: ../PresentationAdmin/ModifyRoute.php?successDelete=success');
     } else {
         header('location: ../PresentationAdmin/ModifyRoute.php?errorDelete=error');
