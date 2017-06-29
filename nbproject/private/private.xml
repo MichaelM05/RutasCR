@@ -3,9 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp64/www/Proyectos/RutasCR/Styles/css/bootstrap.min.css</file>
-            <file>file:/C:/wamp64/www/Proyectos/RutasCR/Styles/css/style.css</file>
-            <file>file:/C:/wamp64/www/Proyectos/RutasCR/Presentation/route_info.php</file>
+            <file>file:/C:/wamp64/www/Proyectos/RutasCR/PresentationAdmin/ModifyRoute.php</file>
+            <file>file:/C:/wamp64/www/Proyectos/RutasCR/PresentationAdmin/index.php</file>
+            <file>file:/C:/wamp64/www/Proyectos/RutasCR/PresentationAdmin/DeletePlacesRoute.php</file>
+            <file>file:/C:/wamp64/www/Proyectos/RutasCR/Actions/PredisignedRouteActions.php</file>
+            <file>file:/C:/wamp64/www/Proyectos/RutasCR/Data/Data.php</file>
+            <file>file:/C:/wamp64/www/Proyectos/RutasCR/Business/PredesignedRouteBusiness.php</file>
+            <file>file:/C:/wamp64/www/Proyectos/RutasCR/Data/UserData.php</file>
+            <file>file:/C:/wamp64/www/Proyectos/RutasCR/PresentationAdmin/ShowAvailablesPlaces.php</file>
+            <file>file:/C:/wamp64/www/Proyectos/RutasCR/PresentationAdmin/ReusableHeader.php</file>
+            <file>file:/C:/wamp64/www/Proyectos/RutasCR/Data/PredesignedRouteData.php</file>
         </group>
     </open-files>
 </project-private>

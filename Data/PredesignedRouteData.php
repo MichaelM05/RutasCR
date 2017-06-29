@@ -58,6 +58,10 @@ class PredesignedRouteData extends Data {
 
     public function getAllTBPredesignedRoutees() {
         $conn = mysqli_connect($this->server, $this->user, $this->password, $this->db);
+        echo $this->server."<br>";
+        echo $this->user."<br>";
+        echo $this->password."<br>";
+        echo $this->db."<br>";
         $conn->set_charset('utf8');
 
         $querySelect = "select * from tbpredesignedroute;";

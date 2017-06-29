@@ -20,7 +20,7 @@ if (isset($_POST["createRoute"])) {
     $result = $callApi->callAPIMethod("POST", $url, $data);
     $results = json_decode($result);
 
-    if ($results['status'] === "success") {
+    if ($results->status === "success") {
         header('location: ../PresentationAdmin/CreateRoute.php?success=success');
     } else {
         header('location: ../PresentationAdmin/CreateRoute.php?error=error');
@@ -45,7 +45,7 @@ if (isset($_POST["createRoute"])) {
     $result = $callApi->callAPIMethod("PUT", $url, $data);
     $results = json_decode($result);
 
-    if ($results['status'] === "success") {
+    if ($results->status === "success") {
         header('location: ../PresentationAdmin/ModifyRoute.php?success=success');
     } else {
         header('location: ../PresentationAdmin/ModifyRoute.php?error=error');
