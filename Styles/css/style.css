@@ -1892,4 +1892,5 @@ button.submit:hover {
 #site {
         top:15%;
         outline: none;
+        z-index: 10000;
        }

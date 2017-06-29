@@ -166,10 +166,12 @@
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                             <h4 class="modal-title" id="nameSite">Modal Header</h4>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body" style="overflow-y: auto;">
                             <p id="description">Some text in the modal.</p><br>
-                            <div id="images"></div><br>
-                            <div id="video"></div>
+                            <div class="row">
+                            <div id="image" class="col-md-6 col-sm-6"></div>
+                            <div id="video" class="col-md-6 col-sm-6"></div>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -289,7 +291,25 @@
             
             function site(n) {
                         document.getElementById("nameSite").innerHTML= route[n].nameTouristicPlace;
-                        document.getElementById("description").innerHTML= route[n].descriptionTouristicPlace;               
+                        document.getElementById("description").innerHTML= route[n].descriptionTouristicPlace;
+                        var divImage = document.getElementById("image");
+                        var divVideo = document.getElementById("video");
+                        divImage.innerHTML="";
+                        divVideo.innerHTML="";
+                        var images = route[n].images;
+                        var img = document.createElement("img");
+                        img.src = images[0];
+                        img.style= "height:80%";
+                        divImage.appendChild(img);
+                        var videos = route[n].videos;
+                        var video = document.createElement("video");
+                        if(typeof videos[0] !== "undefined"){
+                            video.src = videos[0];
+                            video.style= "height:80%";
+                            video.setAttribute("controls","controls") 
+                            divVideo.appendChild(video);
+                        }
+
             }
             google.maps.event.addDomListener(window, 'load', initialize);
         </script>
