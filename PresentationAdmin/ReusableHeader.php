@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    $user = $_SESSION['user'];
+    
+?>
+
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -47,14 +53,20 @@
 <!--                        <li> 
                             <a href="index.php" ><i class="fa fa-desktop "></i>Inicio</a>
                         </li>-->
-                        <li>
-                            <a href="./AddTouristicPlace.php"><i class="fa fa-bar-chart-o"></i>Agregar sitio turístico</a>
-                        </li>
+                        <?php
+                            if($user->admin == 0){
+                        ?>
                         <li>
                             <a href="./CreateRoute.php"><i class="fa fa-bar-chart-o"></i>Crear Ruta</a>
                         </li>
                         <li>
                             <a href="./ModifyRoute.php"><i class="fa fa-bar-chart-o"></i>Modificar Ruta</a>
+                        </li>
+                        <?php
+                            }else{
+                        ?>
+                         <li>
+                            <a href="./AddTouristicPlace.php"><i class="fa fa-bar-chart-o"></i>Agregar sitio turístico</a>
                         </li>
                         <li>
                             <a href="./CreateAdmin.php"><i class="fa fa-bar-chart-o"></i>Crear Administrador</a>
@@ -62,6 +74,9 @@
                         <li>
                             <a href="./DeleteAdmin.php"><i class="fa fa-bar-chart-o"></i>Eliminar Administrador</a>
                         </li>
+                        <?php
+                            }
+                        ?>
                     </ul>
                 </div>
 

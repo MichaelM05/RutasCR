@@ -125,10 +125,10 @@
                                                 for ($index = 1;$index <= count($routes);$index++) {
                                                     $route = $routes[$index-1];
                                                            ?>
-                                                            <div class="col-md-4 col-sm-6">
+                                                            <div class="col-md-4 col-sm-6" style="margin-bottom: 3%;">
                                                                 <img src="../Images/catarata.jpg" alt="">
                                                             </div>
-                                                            <div class="col-md-2 col-sm-6">
+                                                            <div class="col-md-2 col-sm-6" style="margin-bottom: 3%;">
                                                                 <p class="visible"><?php echo $route->routeName?> </p><br>
                                                                 <?php echo '<a href="route_info.php?id=' .($index-1). '" class="visible">Ver mas</a>'?>
                                                             </div>
