@@ -1,4 +1,5 @@
 <?php
+
 include_once '../Domain/CallAPI.php';
 
 if (isset($_POST["searchPre"])) {
@@ -37,8 +38,8 @@ if (isset($_POST["searchPre"])) {
                 $leng = "-84.8383600";
                 break;
             case "Guanacaste":
-                $lat = "10,4958";
-                $leng = "-85,355";
+                $lat = "10.4958";
+                $leng = "-85.355";
                 break;
             case "Alajuela":
                 $lat = "10.0162500";
@@ -46,20 +47,21 @@ if (isset($_POST["searchPre"])) {
                 break;
         }
     }
-    
+
     $values = array();
     $values['price'] = $price;
     $values['activity'] = $activity;
     $values['duration'] = $duration;
     $values['distance'] = $distance;
-    $values['initPoint'] = $lat.",".$leng;    
-    
-    echo $data = json_encode($values);  
+    $values['initPoint'] = $lat . "," . $leng;
+
+    $data = json_encode($values);
     $callApi = new CallAPI();
-    $url = "http://rutascr.esy.es/WebServices/searchtouristicplaces";  
+    $url = "http://rutascr.esy.es/WebServices/searchtouristicplaces";
     $result = $callApi->callAPIMethod("POST", $url, $data);
     $routes = json_decode($result);
-    
-    echo $routes;
+    session_start();
+    $_SESSION['routesPred'] = $routes;
+    header('location: ../PresentationAdmin/ShowAvailablesPlaces.php');
     
 }    
