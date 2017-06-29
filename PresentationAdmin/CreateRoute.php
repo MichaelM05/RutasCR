@@ -89,10 +89,51 @@ include './ReusableHeader.php';
     </div>
 </div>
 <!-- /. PAGE WRAPPER  -->
+<!-- Modal
+            ============================================= -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">    
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+
+            </div>
+        </div>
+
+    </div>
+</div>
 
 <?php
 include './ReusableFooter.php';
+
+if (isset($_GET['success'])) {
+    echo '
+                <script>                
+                    $(document).ready(function(){
+                        modalSelect("Registro con éxito");
+                        $("#myModal").modal("show");
+                    });
+                </script>';
+} else if (isset($_GET['error'])) {
+    echo '
+                <script>     
+                    $(document).ready(function(){
+                        modalSelect("Error al Registrar, verifique su conexión");
+                        $("#myModal").modal("show");
+                    });
+                </script>';
+}
 ?>
+<script>
+    function modalSelect(modalMessage, modalTitle) {
+        document.getElementsByClassName("modal-title")[0].textContent = modalTitle;
+        document.getElementsByClassName("modal-body")[0].textContent = modalMessage;
+    }
+</script>
+
 <script>
     $(document).ready(function obtener_localizacion() {
         navigator.geolocation.getCurrentPosition(coordenadas);
